@@ -18,7 +18,6 @@
 		6F7A83D828F44F12009E06D1 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A83D728F44F12009E06D1 /* Downloader.swift */; };
 		6F7E6A0128ED8578001C01A5 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E6A0028ED8578001C01A5 /* CategoryCollectionViewController.swift */; };
 		6F7E6A0328ED95ED001C01A5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E6A0228ED95ED001C01A5 /* CategoryCollectionViewCell.swift */; };
-		6F7E6A0528ED97D4001C01A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F7E6A0428ED97D4001C01A5 /* GoogleService-Info.plist */; };
 		6F7E6A0728ED9A38001C01A5 /* FirebaseCollecitonReferance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E6A0628ED9A38001C01A5 /* FirebaseCollecitonReferance.swift */; };
 		6F7E6A0C28ED9CF6001C01A5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E6A0B28ED9CF6001C01A5 /* Category.swift */; };
 		6F7E6A0F28ED9F26001C01A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E6A0E28ED9F26001C01A5 /* Constants.swift */; };
@@ -28,6 +27,7 @@
 		6F7E6A1928F03021001C01A5 /* ItemAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E6A1828F03021001C01A5 /* ItemAddViewController.swift */; };
 		6F7E6A1B28F03A24001C01A5 /* Helper Funcitons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E6A1A28F03A24001C01A5 /* Helper Funcitons.swift */; };
 		6FFC7C0428F5A9AB002F8D1B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC7C0328F5A9AB002F8D1B /* ImageCollectionViewCell.swift */; };
+		6FFC7C0628F84E9D002F8D1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FFC7C0528F84E9C002F8D1B /* GoogleService-Info.plist */; };
 		D50A2AA57179B19056533C5C /* Pods_BuyMe_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81055EC5466A95A709E6025C /* Pods_BuyMe_.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,6 @@
 		6F7A83D728F44F12009E06D1 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		6F7E6A0028ED8578001C01A5 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		6F7E6A0228ED95ED001C01A5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		6F7E6A0428ED97D4001C01A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F7E6A0628ED9A38001C01A5 /* FirebaseCollecitonReferance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollecitonReferance.swift; sourceTree = "<group>"; };
 		6F7E6A0B28ED9CF6001C01A5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		6F7E6A0E28ED9F26001C01A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		6F7E6A1828F03021001C01A5 /* ItemAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewController.swift; sourceTree = "<group>"; };
 		6F7E6A1A28F03A24001C01A5 /* Helper Funcitons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper Funcitons.swift"; sourceTree = "<group>"; };
 		6FFC7C0328F5A9AB002F8D1B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		6FFC7C0528F84E9C002F8D1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		81055EC5466A95A709E6025C /* Pods_BuyMe_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyMe_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF01A099C3BADEC0E0488463 /* Pods-BuyMe!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyMe!.debug.xcconfig"; path = "Target Support Files/Pods-BuyMe!/Pods-BuyMe!.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,7 +111,7 @@
 				6F6CCD2928ED7AE800827B29 /* Assets.xcassets */,
 				6F6CCD2B28ED7AE800827B29 /* LaunchScreen.storyboard */,
 				6F6CCD2E28ED7AE800827B29 /* Info.plist */,
-				6F7E6A0428ED97D4001C01A5 /* GoogleService-Info.plist */,
+				6FFC7C0528F84E9C002F8D1B /* GoogleService-Info.plist */,
 			);
 			path = "BuyMe!";
 			sourceTree = "<group>";
@@ -229,7 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F6CCD2D28ED7AE800827B29 /* LaunchScreen.storyboard in Resources */,
-				6F7E6A0528ED97D4001C01A5 /* GoogleService-Info.plist in Resources */,
+				6FFC7C0628F84E9D002F8D1B /* GoogleService-Info.plist in Resources */,
 				6F6CCD2A28ED7AE800827B29 /* Assets.xcassets in Resources */,
 				6F6CCD2828ED7AE400827B29 /* Main.storyboard in Resources */,
 			);
