@@ -8,6 +8,9 @@
 import UIKit
 
 class ItemsDetailViewController: UIViewController {
+    
+    var basket = Basket.shared
+    
     //MARK: - Vars
     var item: Items!
     var itemImages: [UIImage] = []
@@ -21,12 +24,13 @@ class ItemsDetailViewController: UIViewController {
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemDescription: UITextView!
     @IBOutlet weak var itemPrice: UILabel!
-    @IBOutlet weak var pagingIndicator: UIPageControl!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(self.backAction)) // bir önceki sayfaya dönme iconunu kendimiz yeniden şekillendirdik ve bir fonksiyon atadık.
+        
         downloadPictures()
         setupUI()
     }
@@ -56,6 +60,35 @@ class ItemsDetailViewController: UIViewController {
         }
         
     }
+    
+    //MARK: - IBActions
+    @objc func backAction() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func addButonPressed(_ sender: Any) {
+        
+        basket.downloadBasketFromFirebase("1234") { basket in
+            if basket == nil {
+                self.newBasket()
+            } else {
+                basket!.itemIDs.append(self.basket.id)
+                basket?.updateBasket(basket: basket!, withValues: [keyBasketItemIDs : basket!.itemIDs!])
+            }
+        }
+        ErrorController.alert2Button(alertInfo: AlertKey.confirmation, page: self, button1: "Basket!", button2: "Back!")
+    }
+    private func newBasket() {
+        let newBasket = Basket()
+        newBasket.id = UUID().uuidString
+        newBasket.ownerID = "12345"
+        newBasket.itemIDs = [self.item.id]
+        
+        Basket.shared.saveBasketToFireStore(newBasket)
+        
+    }
+    
+    
 }
 extension ItemsDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource { // Tekrar Notu: Bu aşamada ilk başta görüntüyü cell içerisine getiremedik bu extension çalışmamıştı. bunun nedeni datasource ve delegate'in sayfanın viewı içerisinde dahil edilmemiş olmasıydı. benzer bir görüntü alamama fonksiyonların çalışmama durumu burdan kaynaklı referenceOutlets bağlantısının olmamasından kaynaklanabilir.
     
@@ -67,7 +100,7 @@ extension ItemsDetailViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ imageCollectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-      
+        
         let cell = imageCollectionView.dequeueReusableCell(withReuseIdentifier: itemDetailImage, for: indexPath) as! ImageCollectionViewCell
         
         if itemImages.count > 0 {
@@ -86,7 +119,7 @@ extension ItemsDetailViewController: UICollectionViewDelegateFlowLayout { // col
         
         let availableWidth = collectionView.frame.width - sectionInsets.left // genişliğin ne olacağını bilmiyoruz o yüzden ekran ölçüsünden verdiğimiz paddingSpace'i çıkıyoruz
         collectionView.isPagingEnabled = true
-      
+        
         
         
         return CGSize(width: availableWidth, height: cellHeight)

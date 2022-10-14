@@ -10,6 +10,8 @@ import UIKit
 
 class Items {
     
+    static let shared = Items()
+    
     var id: String!
     var categoryID: String!
     var name: String!
@@ -21,7 +23,7 @@ class Items {
    // 08507770541 vodafone  online müşteri hizmetleri telefon numarası.
     }
     
-    init(_dictionary: NSDictionary){
+    init(_dictionary: NSDictionary) {
         id = _dictionary[keyObjectID] as? String ?? ""
         categoryID = _dictionary[keyCategoryID] as? String ?? ""
         name = _dictionary[keyName] as? String ?? "Oops! we can't find item :("
@@ -39,7 +41,7 @@ class Items {
 
     //MARK: - Helpers
     
-    func itemDictionaryFrom(_ item: Items) -> NSDictionary{
+    func itemDictionaryFrom(_ item: Items) -> NSDictionary {
         return NSDictionary(objects: [item.id, item.categoryID, item.name, item.description, item.price, item.imageLinks], forKeys: [keyObjectID as NSCopying, keyCategoryID as NSCopying, keyName as NSCopying, keyDescription as NSCopying, keyPrice as NSCopying, keyLinks as NSCopying])
     }
     

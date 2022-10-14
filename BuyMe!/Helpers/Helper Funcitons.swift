@@ -21,6 +21,22 @@ class ErrorController {
         alertVC.addAction(okButton)
         page.present(alertVC, animated: true)
     }
+    
+    static func alert2Button(alertInfo: String, page: UIViewController, button1: String, button2: String) {
+        let alertVC = UIAlertController(title: AlertKey.congrats,
+                                        message: alertInfo,
+                                        preferredStyle: .alert)
+       
+        let basketButton = UIAlertAction(title: button1, style: .default) { action in
+            page.navigationController?.pushViewController(BasketViewController(), animated: true)
+        }
+        let continueButton = UIAlertAction(title: button2, style: .default) { action2 in
+            page.navigationController?.popToViewController(page, animated: true)
+        }
+        alertVC.addAction(basketButton)
+        alertVC.addAction(continueButton)
+        page.present(alertVC, animated: true)
+    }
 }
 
 //MARK: - currency Converter, loader gibi yardımcı fonksiyonlar

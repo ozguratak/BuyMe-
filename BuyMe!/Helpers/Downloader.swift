@@ -21,7 +21,7 @@ func uploadImages(images: [UIImage?], itemID: String, completion: @escaping (_ i
         for image in images {
             
             let fileName = "ItemImages/" + itemID + "/" + "\(nameSuffix)" + ".jpg" //ekleyeceğimiz her bir fotoğrafa dosya ismi veriyoruz isim formatımız: ItemImages/91234D3264/0.jpg olacak böylece aynı item ID'ye sahip fotoğraflar üst üste yazılmayacak ve ayrı olarak gruplanabilecek
-            let imageData = image!.jpegData(compressionQuality: 0.5) //imagelarımız PHAuth formatında bu format bizim için uygun değil bu yüzden storage yaparken sıkıştırmamız ve dönüştürmemiz gerekiyor.
+            let imageData = image!.jpegData(compressionQuality: 0.01) //imagelarımız PHAuth formatında bu format bizim için uygun değil bu yüzden storage yaparken sıkıştırmamız ve dönüştürmemiz gerekiyor.
             
             saveImageInFirebase(imageData: imageData!, fileName: fileName) { (imageLink) in
                 if imageLink != nil {

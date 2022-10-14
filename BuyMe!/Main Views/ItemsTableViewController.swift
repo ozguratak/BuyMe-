@@ -14,7 +14,8 @@
 import UIKit
 
 class ItemsTableViewController: UITableViewController {
-    
+    var items = Items.shared
+    var skeleton = Skeleton.shared 
     var category: Category!
     var itemsArray: [Items] = []
     var itemsForShow: [Items] = []
@@ -51,7 +52,7 @@ class ItemsTableViewController: UITableViewController {
     //MARK: - Helpers & Downloading
     func loadItems() {
         
-        Items().downloadItemsFromFirebase { (allItems) in
+        items.downloadItemsFromFirebase { (allItems) in
             self.itemsArray = allItems
             self.selectionShowItems()
             self.tableView.reloadData()

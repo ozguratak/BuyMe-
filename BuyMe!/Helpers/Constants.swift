@@ -29,6 +29,11 @@ public let keyDescription = "description"
 public let itemNotFound = "Not Found Any Item!"
 public let itemUploadAdvice = "Maybe you can upload a new item for sale!"
 
+//Basket
+public let keyBasketID = "basketID"
+public let keyBasketOwnerID = "basketOwnerID"
+public let keyBasketItemIDs = "basketItemIDs"
+
 
 //Cell Keys
 public let cellIdentifier = "Cell"
@@ -51,7 +56,8 @@ struct AlertKey{
     static let connectionError = "No internet connection! Please check your connection and try again."
     static let somethingError = "Oops! something get wrong :("
     static let downloadError = "Images didn't download. We don't know why is happened... May be you should check your connection."
-
+    static let confirmation = "Good news! Item has added to your basket. What do you want to do?"
+    static let congrats = "Congrats!"
 }
 
 //Links

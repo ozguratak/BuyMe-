@@ -5,6 +5,7 @@ import Foundation
 import SkeletonView
 
 class Skeleton{
+    static let shared = Skeleton()
     
     static func startAnimation(outlet: UIView) {
         outlet.isSkeletonable = true
