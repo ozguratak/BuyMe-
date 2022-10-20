@@ -23,7 +23,7 @@ class BasketViewController: UIViewController {
     //MARK: IBActions
     @IBAction func checkoutButtonPressed(_ sender: Any) {
     }
-    
+    var item: Items!
     var defaultBasket: Basket!
     var basketItems: [Items] = []
     var basketItemIDs: [String] = []
@@ -219,5 +219,19 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
                 itemsTableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
+       
+    }
+    
+    // MARK: - Navigation
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        showItemDetail(basketItems[indexPath.row])
+    }
+    
+    private func showItemDetail(_ item: Items) { //Item id'yi Item detay sayfasına yolladık. Segue kullanmadan storyboardID ile sayfaya push eedeceğiz didselect row at içine itemle çağırabilmek için ayrı fonksiyon olarak yazdık.
+        
+        let itemVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: itemDetail) as! ItemsDetailViewController
+        itemVC.item = item
+        self.navigationController?.pushViewController(itemVC, animated: true)
     }
 }
