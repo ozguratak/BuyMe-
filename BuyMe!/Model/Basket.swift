@@ -32,13 +32,20 @@ class Basket {
         
     }
     //MARK: - Update Basket
-    func updateBasket(basket: Basket, withValues: [String : Any]) {
+    func updateBasket(basket: Basket, withValues: [String : Any], completion: @escaping (_ error: Error?) -> Void) {
         
-        firebaseReference(.Basket).document(basket.id).updateData(withValues) 
+        firebaseReference(.Basket).document(basket.id).updateData(withValues) { (error) in
+            completion(error)
+        }
     }
     
-    
-    
+    func deleteBasket(_ basket: Basket) {
+        firebaseReference(.Basket).document(basket.id).delete { error in
+            if error != nil {
+                print("deleting error \(error!)")
+            }
+        }
+    }
     //MARK: - Download Basket From Database
     func downloadBasketFromFirebase(_ ownerID: String, completion: @escaping (_ basket: Basket?) -> Void) {
         firebaseReference(.Basket).whereField(keyBasketOwnerID, isEqualTo: ownerID).getDocuments { snapShot, error in

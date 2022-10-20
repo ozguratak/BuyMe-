@@ -51,9 +51,7 @@ class TableViewCell: UITableViewCell {
         itemName.text = itemNotFound
         itemDescription.text = itemUploadAdvice
         
-        
     }
-    
 }
 
 

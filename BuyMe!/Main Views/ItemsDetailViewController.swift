@@ -68,12 +68,14 @@ class ItemsDetailViewController: UIViewController {
     
     @IBAction func addButonPressed(_ sender: Any) {
         
+        //todo: Login check!
+        
         basket.downloadBasketFromFirebase("1234") { basket in
             if basket == nil {
                 self.newBasket()
             } else {
-                basket!.itemIDs.append(self.basket.id)
-                basket?.updateBasket(basket: basket!, withValues: [keyBasketItemIDs : basket!.itemIDs!])
+                basket?.itemIDs.append(self.item.id)
+                self.updateBasket(basket: basket!, withValues: [keyBasketItemIDs : basket!.itemIDs!])
             }
         }
         ErrorController.alert2Button(alertInfo: AlertKey.confirmation, page: self, button1: "Basket!", button2: "Back!")
@@ -81,10 +83,21 @@ class ItemsDetailViewController: UIViewController {
     private func newBasket() {
         let newBasket = Basket()
         newBasket.id = UUID().uuidString
-        newBasket.ownerID = "12345"
+        newBasket.ownerID = "1234"
         newBasket.itemIDs = [self.item.id]
         
         Basket.shared.saveBasketToFireStore(newBasket)
+        
+    }
+    
+    private func updateBasket(basket: Basket, withValues: [String : Any]) {
+        basket.updateBasket(basket: basket, withValues: withValues, completion: { error in
+            if error != nil {
+                ErrorController.alert(alertInfo: "Error: \(error)", page: self)
+            } else {
+                ErrorController.alert2Button(alertInfo: AlertKey.confirmation, page: self, button1: "Basket!", button2: "Back!")
+            }
+        })
         
     }
     

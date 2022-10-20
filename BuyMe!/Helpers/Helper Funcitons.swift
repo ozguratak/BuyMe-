@@ -13,6 +13,8 @@ import NVActivityIndicatorView
 
 class ErrorController {
     
+  
+    
     static func alert(alertInfo: String, page: UIViewController) {
         let alertVC = UIAlertController(title: AlertKey.error, message: alertInfo, preferredStyle: .alert)
         let okButton = UIAlertAction(title: AlertKey.ok, style: .default) { action in

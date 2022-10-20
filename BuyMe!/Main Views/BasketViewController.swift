@@ -6,26 +6,212 @@
 //
 
 import UIKit
+import Foundation
 
 class BasketViewController: UIViewController {
+    //MARK: Singletons
+    var basket = Basket.shared
     
- 
-
+    
+    //MARK: IBOutlets
+    @IBOutlet weak var totalAmount: UILabel!
+    @IBOutlet weak var itemTableView: UITableView!
+    @IBOutlet weak var checkButtonOutlet: UIButton!
+    @IBOutlet weak var refreshControlIndicator: UIActivityIndicatorView!
+    
+    
+    //MARK: IBActions
+    @IBAction func checkoutButtonPressed(_ sender: Any) {
+    }
+    
+    var defaultBasket: Basket!
+    var basketItems: [Items] = []
+    var basketItemIDs: [String] = []
+    var purchasedItemIDs: [String] = []
+    
+    var pieceCounter: [String : Int] = [:]
+    //MARK: - Refresh Control
+    private let refreshControl = UIRefreshControl()
+    //MARK: temporary variables
+    let ownerID = "1234" // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        itemTableView.dataSource = self
+        itemTableView.delegate = self
+        itemTableView.refreshControl?.isEnabled = true
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        itemTableView.addSubview(refreshControl)
+        refresh()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func refresh(_ sender: AnyObject) {
+        refresh()
     }
-    */
+    
+    private func refresh() {
+        refreshControlIndicator.isHidden = false
+        refreshControlIndicator.startAnimating()
+        Skeleton.startAnimation(outlet: itemTableView.self)
+        basketItemIDs.removeAll()
+        basketItems.removeAll()
+        getBasket()
+    }
+    
+    private func stopRefresh() {
+        
+        refreshControlIndicator.stopAnimating()
+        Skeleton.stopAnimaton(outlet: itemTableView.self)
+        refreshControlIndicator.isHidden = true
+        refreshControl.endRefreshing()
+        
+    }
+    
+    
+    //MARK: - Get Basket data
+    func getBasket(){
+        basket.downloadBasketFromFirebase(ownerID) { basket in
+            if basket?.itemIDs.isEmpty == false{
+                self.basketItemIDs = (basket?.itemIDs)!
+                self.defaultBasket = basket!
+                print("basket indirildi içinde \(self.basketItemIDs.count) adet item var")
+                self.setItemsInBasket()
+            } else {
+                // view hide ile sepet boş uyarısı basılacak!
+            }
+        }
+        
+        stopRefresh()
+        
+    }
+    
+    //MARK: - Download Items content from DB for listing
+    private func setItemsInBasket() {
+        Items().downloadItemsFromFirebase { (allItems) in
+            for item in allItems {
+                if self.basketItemIDs.contains(item.id) {
+                    self.basketItems.append(item)
+                }
+            }
+            print("\(self.basketItems.count) adet item basket için eklendi...")
+            self.totalAmount.text = self.totalAmountCalculate()
+            self.itemTableView.reloadData()
+        }
+    }
+    //MARK: - Delete items from basket
+    private func deleteItemFromBasket(itemID: String) {
+        
+        for i in 0..<basketItemIDs.count {
+            if itemID == basketItemIDs[i] {
+                basketItemIDs.remove(at: i)
+                updateBasket(basket: defaultBasket, withValues: [keyBasketItemIDs : basketItemIDs])
+                refresh()
+                return
+            }
+        }
+    }
+    
+    private func updateBasket(basket: Basket, withValues: [String : Any]) {
+        basket.updateBasket(basket: basket, withValues: withValues, completion: { error in
+            if error != nil {
+                ErrorController.alert(alertInfo: "Error Code: 103", page: self)
+            }
+        })
+    }
+    // MARK: - Helper functions for UX
+    private func totalAmountCalculate() -> String {
+        var amount = 0.0
+        
+        for item in basketItems {
+            amount += item.price * Double(itemPieceCalculate()[item.id]!)
+            print("toplam sepet tutarı: \(amount)")
+        }
+        return String(describing: amount)
+    }
+    
+    private func itemPieceCalculate() -> [String : Int] {
+        var container: [String] = []
+        var counter = 2
+        
+        for ids in basketItemIDs {
+            if container.contains(ids) {
+                pieceCounter.updateValue(counter, forKey: ids)
+                counter += 1
+            } else {
+                container.append(ids)
+                pieceCounter[ids] = 1
+            }
+        }
+        return pieceCounter
+    }
+    
+    //MARK: - Checout button controls
+    private func checkoutButtonStatusUpdate() {
+        
+        if self.basketItems.count != 0 {
+            checkButtonOutlet.isEnabled = true
+            checkButtonOutlet.backgroundColor = UIColor.systemGreen
+            checkButtonOutlet.setTitleColor(.white, for: .normal)
+        } else {
+            checkButtonOutlet.isEnabled = false
+            checkButtonOutlet.backgroundColor = UIColor.systemGray
+            checkButtonOutlet.setTitleColor(UIColor.black , for: .normal)
+        }
+    }
+}
 
+//MARK: - TableView görünümleri için delegate ve datasource düenlemeleri
+
+extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ itemTableView: UITableView, numberOfRowsInSection section: Int) -> Int { // tableview cell sayısı konfigürasyonu
+        
+        if !basketItems.isEmpty{
+            checkoutButtonStatusUpdate()
+            return basketItems.count
+        }
+        return 0
+    }
+    
+    func tableView(_ itemTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { // cell konfigürasyonu ve yapılandırması
+        
+        Skeleton.startAnimation(outlet: itemTableView)
+        
+        let cell = itemTableView.dequeueReusableCell(withIdentifier: basketCell, for: indexPath) as! BasketItemsTableViewCell
+        if !basketItems.isEmpty{
+            cell.configure(item: basketItems[indexPath.row], dict: itemPieceCalculate())
+            
+        } else {
+            cell.defaultCell()
+        }
+        Skeleton.stopAnimaton(outlet: itemTableView)
+        return cell
+    }
+    
+    func tableView(_ itemsTableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) { // cell'lerin kaydırılarak table viewdan çıkartılması ve DB'den silinmesi
+        let itemID = basketItems[indexPath.row].id!
+        var editItemPiece = pieceCounter[basketItems[indexPath.row].id]
+        var counter = editItemPiece!
+        
+        if editingStyle == .delete {
+            if editItemPiece! > 1 {
+                counter -= 1
+                editItemPiece! = pieceCounter.updateValue(counter, forKey: (itemID))!
+                
+                deleteItemFromBasket(itemID: itemID)
+                basketItems.remove(at: indexPath.row)
+                itemsTableView.deleteRows(at: [indexPath], with: .fade)
+                self.refresh()
+                
+            } else {
+                deleteItemFromBasket(itemID: itemID)
+                basketItems.remove(at: indexPath.row)
+                itemsTableView.deleteRows(at: [indexPath], with: .fade)
+                self.refresh()
+            }
+        }
+    }
 }

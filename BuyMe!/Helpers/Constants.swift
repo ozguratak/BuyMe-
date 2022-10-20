@@ -39,6 +39,7 @@ public let keyBasketItemIDs = "basketItemIDs"
 public let cellIdentifier = "Cell"
 public let itemCell = "TableCell"
 public let itemDetailImage = "ImageCell"
+public let basketCell = "basketCell"
 
 
 //Segues

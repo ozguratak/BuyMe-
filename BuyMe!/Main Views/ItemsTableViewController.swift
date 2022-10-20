@@ -40,14 +40,12 @@ class ItemsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: itemCell, for: indexPath) as! TableViewCell
         if !itemsForShow.isEmpty {
             cell.cellConfigure(itemsForShow[indexPath.row])
-            
         } else {
             cell.defaultCell()
         }
         Skeleton.stopAnimaton(outlet: tableView)
         return cell
     }
-    
     
     //MARK: - Helpers & Downloading
     func loadItems() {

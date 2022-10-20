@@ -28,6 +28,7 @@
 		6F7E6A1B28F03A24001C01A5 /* Helper Funcitons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E6A1A28F03A24001C01A5 /* Helper Funcitons.swift */; };
 		6FAE101028F9465600769082 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE100F28F9465600769082 /* BasketViewController.swift */; };
 		6FAE101228F9534A00769082 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE101128F9534A00769082 /* Basket.swift */; };
+		6FAE101428FD81C500769082 /* BasketItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE101328FD81C500769082 /* BasketItemsTableViewCell.swift */; };
 		6FFC7C0428F5A9AB002F8D1B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC7C0328F5A9AB002F8D1B /* ImageCollectionViewCell.swift */; };
 		6FFC7C0628F84E9D002F8D1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FFC7C0528F84E9C002F8D1B /* GoogleService-Info.plist */; };
 		D50A2AA57179B19056533C5C /* Pods_BuyMe_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81055EC5466A95A709E6025C /* Pods_BuyMe_.framework */; };
@@ -58,6 +59,7 @@
 		6F7E6A1A28F03A24001C01A5 /* Helper Funcitons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper Funcitons.swift"; sourceTree = "<group>"; };
 		6FAE100F28F9465600769082 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		6FAE101128F9534A00769082 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
+		6FAE101328FD81C500769082 /* BasketItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemsTableViewCell.swift; sourceTree = "<group>"; };
 		6FFC7C0328F5A9AB002F8D1B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FFC7C0528F84E9C002F8D1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		81055EC5466A95A709E6025C /* Pods_BuyMe_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyMe_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 				6F7E6A0228ED95ED001C01A5 /* CategoryCollectionViewCell.swift */,
 				6F7E6A1028EF094F001C01A5 /* TableViewCell.swift */,
 				6FFC7C0328F5A9AB002F8D1B /* ImageCollectionViewCell.swift */,
+				6FAE101328FD81C500769082 /* BasketItemsTableViewCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				6FAE101228F9534A00769082 /* Basket.swift in Sources */,
 				6F7E6A1928F03021001C01A5 /* ItemAddViewController.swift in Sources */,
 				6F7E6A0728ED9A38001C01A5 /* FirebaseCollecitonReferance.swift in Sources */,
+				6FAE101428FD81C500769082 /* BasketItemsTableViewCell.swift in Sources */,
 				6F6CCD2128ED7AE400827B29 /* AppDelegate.swift in Sources */,
 				6F3661CC28F58DED009A0EB2 /* Skeleton.swift in Sources */,
 				6F6CCD2328ED7AE400827B29 /* SceneDelegate.swift in Sources */,
