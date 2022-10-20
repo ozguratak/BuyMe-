@@ -34,10 +34,15 @@ class ItemAddViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    private func notificationController() {
+        NotificationCenter.default.post(name: NSNotification.Name(itemAddToCategory), object: nil)
+        print("Item basketlendi!")
+    }
     
  //MARK: -IBActions
     
     @IBAction func doneButtonPressed(_ sender: Any) {
+        notificationController()
         dismissKeyboard()
         
         if checkFieldsAreCompleted() {

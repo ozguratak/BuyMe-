@@ -76,9 +76,10 @@ class ItemsDetailViewController: UIViewController {
             } else {
                 basket?.itemIDs.append(self.item.id)
                 self.updateBasket(basket: basket!, withValues: [keyBasketItemIDs : basket!.itemIDs!])
+                self.notificationController()
             }
         }
-        ErrorController.alert2Button(alertInfo: AlertKey.confirmation, page: self, button1: "Basket!", button2: "Back!")
+        ErrorController.alert(alertInfo: "Item succesfully added to basket!", page: self)
     }
     private func newBasket() {
         let newBasket = Basket()
@@ -95,17 +96,19 @@ class ItemsDetailViewController: UIViewController {
             if error != nil {
                 ErrorController.alert(alertInfo: "Error: \(error)", page: self)
             } else {
-                ErrorController.alert2Button(alertInfo: AlertKey.confirmation, page: self, button1: "Basket!", button2: "Back!")
+                ErrorController.alert(alertInfo: "Item succesfully added to basket!", page: self)
             }
         })
         
+    }
+    private func notificationController() {
+        NotificationCenter.default.post(name: NSNotification.Name(itemAddNotification), object: nil)
+        print("Item basketlendi!")
     }
     
     
 }
 extension ItemsDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource { // Tekrar Notu: Bu aşamada ilk başta görüntüyü cell içerisine getiremedik bu extension çalışmamıştı. bunun nedeni datasource ve delegate'in sayfanın viewı içerisinde dahil edilmemiş olmasıydı. benzer bir görüntü alamama fonksiyonların çalışmama durumu burdan kaynaklı referenceOutlets bağlantısının olmamasından kaynaklanabilir.
-    
-    
     
     func collectionView(_ imageCollectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemImages.count == 0 ? 1 : itemImages.count // if case'in kısa yazılmış versiyonu aslında. buraya bir if case yazıp döndürmek yerine kısaca bunu yazdık. tanımlaması eğer itemImages.count 0 olursa 1 tane cell göster : (else) içeriğin sayısı kadar göster.

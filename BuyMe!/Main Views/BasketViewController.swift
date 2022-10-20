@@ -39,6 +39,7 @@ class BasketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(navigationCenterActivity) , name: Notification.Name(itemAddNotification), object: nil)
         itemTableView.dataSource = self
         itemTableView.delegate = self
         itemTableView.refreshControl?.isEnabled = true
@@ -48,6 +49,7 @@ class BasketViewController: UIViewController {
         refresh()
     }
     
+    //MARK: - Page refreshing controllers
     @objc func refresh(_ sender: AnyObject) {
         refresh()
     }
@@ -56,8 +58,6 @@ class BasketViewController: UIViewController {
         refreshControlIndicator.isHidden = false
         refreshControlIndicator.startAnimating()
         Skeleton.startAnimation(outlet: itemTableView.self)
-        basketItemIDs.removeAll()
-        basketItems.removeAll()
         getBasket()
     }
     
@@ -75,6 +75,9 @@ class BasketViewController: UIViewController {
     func getBasket(){
         basket.downloadBasketFromFirebase(ownerID) { basket in
             if basket?.itemIDs.isEmpty == false{
+                
+                self.basketItemIDs.removeAll()
+                self.basketItems.removeAll()
                 self.basketItemIDs = (basket?.itemIDs)!
                 self.defaultBasket = basket!
                 print("basket indirildi içinde \(self.basketItemIDs.count) adet item var")
@@ -84,12 +87,11 @@ class BasketViewController: UIViewController {
             }
         }
         
-        stopRefresh()
-        
     }
     
     //MARK: - Download Items content from DB for listing
     private func setItemsInBasket() {
+        
         Items().downloadItemsFromFirebase { (allItems) in
             for item in allItems {
                 if self.basketItemIDs.contains(item.id) {
@@ -100,6 +102,7 @@ class BasketViewController: UIViewController {
             self.totalAmount.text = self.totalAmountCalculate()
             self.itemTableView.reloadData()
         }
+        stopRefresh()
     }
     //MARK: - Delete items from basket
     private func deleteItemFromBasket(itemID: String) {
@@ -121,6 +124,7 @@ class BasketViewController: UIViewController {
             }
         })
     }
+    
     // MARK: - Helper functions for UX
     private func totalAmountCalculate() -> String {
         var amount = 0.0
@@ -161,6 +165,11 @@ class BasketViewController: UIViewController {
             checkButtonOutlet.setTitleColor(UIColor.black , for: .normal)
         }
     }
+    
+    //MARK: - Navigation Center call activity
+    @objc func navigationCenterActivity() {
+        refresh()
+    }
 }
 
 //MARK: - TableView görünümleri için delegate ve datasource düenlemeleri
@@ -200,17 +209,14 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
             if editItemPiece! > 1 {
                 counter -= 1
                 editItemPiece! = pieceCounter.updateValue(counter, forKey: (itemID))!
-                
-                deleteItemFromBasket(itemID: itemID)
                 basketItems.remove(at: indexPath.row)
+                deleteItemFromBasket(itemID: itemID)
                 itemsTableView.deleteRows(at: [indexPath], with: .fade)
-                self.refresh()
                 
             } else {
-                deleteItemFromBasket(itemID: itemID)
                 basketItems.remove(at: indexPath.row)
+                deleteItemFromBasket(itemID: itemID)
                 itemsTableView.deleteRows(at: [indexPath], with: .fade)
-                self.refresh()
             }
         }
     }

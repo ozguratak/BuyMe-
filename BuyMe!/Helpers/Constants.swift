@@ -47,6 +47,10 @@ public let itemSegue = "categoryToItem"
 public let addItemSegue = "addItemSegue"
 public let itemDetail = "itemDetail"
 
+//Notification Constants
+public let itemAddNotification = "ItemAdded"
+public let itemAddToCategory = "itemAddToCategory"
+
 
 //Alert Strings and Keys
 struct AlertKey{

@@ -22,8 +22,8 @@ class ItemsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(navigationCenterActivity) , name: Notification.Name(itemAddToCategory), object: nil)
         loadItems()
-        
     }
     // MARK: - Table view data source
     
@@ -63,6 +63,12 @@ class ItemsTableViewController: UITableViewController {
                 self.itemsForShow.append(item)
             }
         }
+    }
+    
+    @objc func navigationCenterActivity () {
+        self.itemsArray.removeAll()
+        self.itemsForShow.removeAll()
+        self.loadItems()
     }
     
     // MARK: - Navigation

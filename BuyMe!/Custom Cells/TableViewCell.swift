@@ -17,13 +17,12 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
+        
     }
     
     //MARK: - Cell Configure
@@ -46,7 +45,7 @@ class TableViewCell: UITableViewCell {
         }
     }
     
-    func defaultCell(){
+    func defaultCell() {
         
         itemName.text = itemNotFound
         itemDescription.text = itemUploadAdvice
@@ -54,11 +53,3 @@ class TableViewCell: UITableViewCell {
     }
 }
 
-
-extension TableViewCell: UITableViewDelegate {
-    
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        <#code#>
-    //    }
-    //
-}
