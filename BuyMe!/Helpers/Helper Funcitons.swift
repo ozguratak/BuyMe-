@@ -12,8 +12,14 @@ import NVActivityIndicatorView
 
 
 class ErrorController {
-    
-  
+    static func goBack(alertInfo: String, showPage: UIViewController, goPage: UIViewController) {
+        let alertVC = UIAlertController(title: AlertKey.error, message: alertInfo, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: AlertKey.ok, style: .default) { action in
+            goPage.navigationController?.popToViewController(goPage, animated: true)
+        }
+        alertVC.addAction(okButton)
+        showPage.present(alertVC, animated: true)
+    }
     
     static func alert(alertInfo: String, page: UIViewController) {
         let alertVC = UIAlertController(title: AlertKey.error, message: alertInfo, preferredStyle: .alert)

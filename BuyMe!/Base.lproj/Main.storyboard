@@ -837,7 +837,7 @@
         <!--Login View Controller-->
         <scene sceneID="hv8-xF-StU">
             <objects>
-                <viewController id="Jxk-1B-MS8" customClass="LoginViewController" customModule="BuyMe_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="Jxk-1B-MS8" customClass="LoginViewController" customModule="BuyMe_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qsb-m4-fIv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

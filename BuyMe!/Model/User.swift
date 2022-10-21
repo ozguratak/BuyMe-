@@ -86,20 +86,20 @@ class User {
     
     //MARK: - User login and register functions
     
-    class func loginUser(email: String, password: String, completion: @escaping (_ error: Error?, _ verified: Bool) -> Void) {
+    class func loginUser(email: String, password: String, completion: @escaping (_ error: Error?, _ verified: Bool, _ Id: String) -> Void) {
         
         Auth.auth().signIn(withEmail: email, password: password) { ( authDataResult, error) in
             if error == nil {
                 if authDataResult!.user.isEmailVerified {
-                    
+                    userID = Auth.auth().currentUser!.uid
                     //download user firebase
-                    completion(error, true)
+                    completion(error, true, userID)
                 } else {
-                    print("email was not verified!")
-                    completion(error, false)
+                    
+                    completion(error, false, "")
                 }
             } else {
-                completion(error, false)
+                completion(error, false, "")
             }
         }
     }

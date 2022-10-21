@@ -30,8 +30,7 @@ class SigninViewController: UIViewController {
 
     
     private func fieldCheck() {
-        if let email = self.emailTextField.text, let password = self.passwordTextfield.text { //email ve şifre yaratma zorunluluğu oluşturuyoruz. ikisi birden olmadan ilerlemiyor.
-            
+        if let email = self.emailTextField.text, let password = self.passwordTextfield.text { 
             User.registerUser(email: email, password: password) { error in
                 if error != nil {
                     ErrorController.alert(alertInfo: "Verification e-mail sended! Please verify your account!", page: self)

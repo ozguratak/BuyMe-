@@ -12,7 +12,7 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     
     var ownerID: String = ""
-   
+    
     //IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -20,18 +20,19 @@ class LoginViewController: UIViewController {
     
     //IBActions
     @IBAction func loginButtonPressed(_ sender: Any) {
-       loginActions()
+        loginActions()
     }
     
     @IBAction func signinButtonPressed(_ sender: Any) {
-     showSigninPage()
+        showSigninPage()
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
     }
+    
     
     private func showSigninPage() {
         performSegue(withIdentifier: signinPageSegue, sender: nil)
@@ -39,12 +40,23 @@ class LoginViewController: UIViewController {
     
     private func loginActions() {
         if emailTextField.text != nil && passwordTextField.text != nil {
-            User.loginUser(email: self.emailTextField.text!, password: self.passwordTextField.text!) { error, authData in
+            User.loginUser(email: self.emailTextField.text!, password: self.passwordTextField.text!) { error, authData, ID  in
                 if error == nil {
-                    self.ownerID = Auth.auth().currentUser!.uid
-                    self.accessLogin()
+                    
+                    if authData == true {
+                        
+                        self.accessLogin()
+                        
+                        self.message(message: "Access verified", title: "Good News!", action: true)
+                    } else {
+                        
+                        self.accessLogin()
+                        
+                        self.message(message: "Your e-mail was not verified.", title: "Ooops!", action: true)
+                    }
+                    
                 } else {
-                    ErrorController.alert(alertInfo: "Your e-mail has not verified please check your e-mail!", page: self)
+                    ErrorController.alert(alertInfo: String(describing: error!), page: self)
                 }
             }
         } else {
@@ -53,9 +65,22 @@ class LoginViewController: UIViewController {
     }
     
     private func accessLogin() {
-        let mainSb = UIStoryboard(name: "Main", bundle: Bundle.main)            // 1
-               let thirdVC = mainSb.instantiateViewController(identifier: loginSuccesSegue)   // 2
-               show(thirdVC, sender: self)
+        
+        let mainSb = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let appVC = mainSb.instantiateViewController(identifier: loginSuccesSegue)
+        
+        show(appVC, sender: self)
+        
+        
+    }
+    
+    private func message(message: String, title: String, action: Bool) {
+        
+        let notificationVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        self.present(notificationVC, animated: true)
+        if action {
+            notificationVC.dismiss(animated: true)
+        }
     }
 }
 

@@ -33,6 +33,7 @@ public let itemUploadAdvice = "Maybe you can upload a new item for sale!"
 public let keyBasketID = "basketID"
 public let keyBasketOwnerID = "basketOwnerID"
 public let keyBasketItemIDs = "basketItemIDs"
+public var userID = ""
 
 //USer
 public let keyCurrentUser = "currentUser"

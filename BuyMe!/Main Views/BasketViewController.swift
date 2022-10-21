@@ -33,12 +33,13 @@ class BasketViewController: UIViewController {
     //MARK: - Refresh Control
     private let refreshControl = UIRefreshControl()
     //MARK: temporary variables
-    let ownerID = LoginViewController().ownerID // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
+    let ownerID = userID // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkAccount()
         NotificationCenter.default.addObserver(self, selector: #selector(navigationCenterActivity) , name: Notification.Name(itemAddNotification), object: nil)
         itemTableView.dataSource = self
         itemTableView.delegate = self
@@ -68,6 +69,12 @@ class BasketViewController: UIViewController {
         refreshControlIndicator.isHidden = true
         refreshControl.endRefreshing()
         
+    }
+    //MARK: - Check user account
+    func checkAccount() {
+        if ownerID == "" {
+            ErrorController.goBack(alertInfo: "FUCK! YOU ARE NOT VERIFIED! GO BACK!!!", showPage: self, goPage: CategoryCollectionViewController())
+        }
     }
     
     

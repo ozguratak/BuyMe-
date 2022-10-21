@@ -68,7 +68,7 @@ class ItemsDetailViewController: UIViewController {
     
     @IBAction func addButonPressed(_ sender: Any) {
         
-        basket.downloadBasketFromFirebase(LoginViewController().ownerID) { basket in
+        basket.downloadBasketFromFirebase(userID) { basket in
             if basket == nil {
                 self.newBasket()
             } else {
@@ -82,7 +82,7 @@ class ItemsDetailViewController: UIViewController {
     private func newBasket() {
         let newBasket = Basket()
         newBasket.id = UUID().uuidString
-        newBasket.ownerID = LoginViewController().ownerID
+        newBasket.ownerID = userID
         newBasket.itemIDs = [self.item.id]
         
         Basket.shared.saveBasketToFireStore(newBasket)
@@ -106,11 +106,10 @@ class ItemsDetailViewController: UIViewController {
     
     
 }
-extension ItemsDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource { // Tekrar Notu: Bu aşamada ilk başta görüntüyü cell içerisine getiremedik bu extension çalışmamıştı. bunun nedeni datasource ve delegate'in sayfanın viewı içerisinde dahil edilmemiş olmasıydı. benzer bir görüntü alamama fonksiyonların çalışmama durumu burdan kaynaklı referenceOutlets bağlantısının olmamasından kaynaklanabilir.
+extension ItemsDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ imageCollectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemImages.count == 0 ? 1 : itemImages.count // if case'in kısa yazılmış versiyonu aslında. buraya bir if case yazıp döndürmek yerine kısaca bunu yazdık. tanımlaması eğer itemImages.count 0 olursa 1 tane cell göster : (else) içeriğin sayısı kadar göster.
-        
+        return itemImages.count == 0 ? 1 : itemImages.count 
     }
     
     func collectionView(_ imageCollectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
