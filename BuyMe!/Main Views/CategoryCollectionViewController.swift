@@ -11,6 +11,7 @@ import UIKit
 class CategoryCollectionViewController: UICollectionViewController {
 
     //MARK: - Constants
+    var ownerID: String?
     var categoryArray: [Category] = []
     
     private let sectionInsets = UIEdgeInsets(top: 20.0, left: 10.0, bottom: 20.0, right: 10.0) // İçerik ölçüsü limitleme
@@ -84,6 +85,7 @@ extension CategoryCollectionViewController { // Kategori celli seçildiğinde il
             
             let VC = segue.destination as! ItemsTableViewController
             VC.category = sender as! Category
+            VC.ownerID = ownerID
         }
             
     }

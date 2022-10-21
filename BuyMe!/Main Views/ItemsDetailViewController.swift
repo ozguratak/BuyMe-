@@ -70,7 +70,7 @@ class ItemsDetailViewController: UIViewController {
         
         //todo: Login check!
         
-        basket.downloadBasketFromFirebase("1234") { basket in
+        basket.downloadBasketFromFirebase(LoginViewController.ownerID) { basket in
             if basket == nil {
                 self.newBasket()
             } else {
@@ -84,7 +84,7 @@ class ItemsDetailViewController: UIViewController {
     private func newBasket() {
         let newBasket = Basket()
         newBasket.id = UUID().uuidString
-        newBasket.ownerID = "1234"
+        newBasket.ownerID = LoginViewController.ownerID
         newBasket.itemIDs = [self.item.id]
         
         Basket.shared.saveBasketToFireStore(newBasket)

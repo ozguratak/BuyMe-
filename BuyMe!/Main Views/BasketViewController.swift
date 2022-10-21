@@ -33,7 +33,7 @@ class BasketViewController: UIViewController {
     //MARK: - Refresh Control
     private let refreshControl = UIRefreshControl()
     //MARK: temporary variables
-    let ownerID = "1234" // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
+    let ownerID = LoginViewController.ownerID // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
     
     
     
@@ -83,7 +83,7 @@ class BasketViewController: UIViewController {
                 print("basket indirildi içinde \(self.basketItemIDs.count) adet item var")
                 self.setItemsInBasket()
             } else {
-                // view hide ile sepet boş uyarısı basılacak!
+                ErrorController.alert(alertInfo: "Is there are space? add something to basket!", page: self)
             }
         }
         

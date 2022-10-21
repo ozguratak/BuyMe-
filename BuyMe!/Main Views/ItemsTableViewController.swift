@@ -5,17 +5,12 @@
 //  Created by obss on 6.10.2022.
 //
 
-/* MARK: - TODO LIST:
- 
- item ekleyip geri dönünce içerik update olmuyor!
- 
- */
-
 import UIKit
 
 class ItemsTableViewController: UITableViewController {
     var items = Items.shared
-    var skeleton = Skeleton.shared 
+    var skeleton = Skeleton.shared
+    var ownerID: String?
     var category: Category!
     var itemsArray: [Items] = []
     var itemsForShow: [Items] = []

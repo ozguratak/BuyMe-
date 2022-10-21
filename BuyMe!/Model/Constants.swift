@@ -34,6 +34,15 @@ public let keyBasketID = "basketID"
 public let keyBasketOwnerID = "basketOwnerID"
 public let keyBasketItemIDs = "basketItemIDs"
 
+//USer
+public let keyCurrentUser = "currentUser"
+public let keyEmail = "email"
+public let keyUserName = "name"
+public let keyUserLastName = "lastName"
+public let keyUserAdress = "adress"
+public let keyOnBoard = "onBoard"
+public let keyPurchased = "purchasedItems"
+public let keyPassword = "password"
 
 //Cell Keys
 public let cellIdentifier = "Cell"
@@ -46,6 +55,11 @@ public let basketCell = "basketCell"
 public let itemSegue = "categoryToItem"
 public let addItemSegue = "addItemSegue"
 public let itemDetail = "itemDetail"
+public let appAccess = "categoryView"
+public let loginSuccesSegue = "succesLogin"
+public let signinPageSegue = "signinViewSegue"
+public let signinSucces = "completeSignin"
+
 
 //Notification Constants
 public let itemAddNotification = "ItemAdded"
@@ -63,6 +77,7 @@ struct AlertKey{
     static let downloadError = "Images didn't download. We don't know why is happened... May be you should check your connection."
     static let confirmation = "Good news! Item has added to your basket. What do you want to do?"
     static let congrats = "Congrats!"
+    static let loginError = "User name or Password is invalid! Please check and try again!"
 }
 
 //Links

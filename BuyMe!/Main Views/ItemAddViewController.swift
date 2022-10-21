@@ -73,8 +73,6 @@ class ItemAddViewController: UIViewController {
     }
     
     private func popTheView() {
-        //ItemsTableViewController().loadItems()
-        //ItemsTableViewController().tableView.reloadData()
         self.navigationController?.popViewController(animated: true)
 
     }
