@@ -68,9 +68,7 @@ class ItemsDetailViewController: UIViewController {
     
     @IBAction func addButonPressed(_ sender: Any) {
         
-        //todo: Login check!
-        
-        basket.downloadBasketFromFirebase(LoginViewController.ownerID) { basket in
+        basket.downloadBasketFromFirebase(LoginViewController().ownerID) { basket in
             if basket == nil {
                 self.newBasket()
             } else {
@@ -84,7 +82,7 @@ class ItemsDetailViewController: UIViewController {
     private func newBasket() {
         let newBasket = Basket()
         newBasket.id = UUID().uuidString
-        newBasket.ownerID = LoginViewController.ownerID
+        newBasket.ownerID = LoginViewController().ownerID
         newBasket.itemIDs = [self.item.id]
         
         Basket.shared.saveBasketToFireStore(newBasket)

@@ -56,7 +56,7 @@ public let itemSegue = "categoryToItem"
 public let addItemSegue = "addItemSegue"
 public let itemDetail = "itemDetail"
 public let appAccess = "categoryView"
-public let loginSuccesSegue = "succesLogin"
+public let loginSuccesSegue = "CategoryCollectionViewController"
 public let signinPageSegue = "signinViewSegue"
 public let signinSucces = "completeSignin"
 

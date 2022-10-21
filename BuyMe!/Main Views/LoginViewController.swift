@@ -11,8 +11,8 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    static let ownerID = "1234"
-    
+    var ownerID: String = ""
+   
     //IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     
     //IBActions
     @IBAction func loginButtonPressed(_ sender: Any) {
-       
+       loginActions()
     }
     
     @IBAction func signinButtonPressed(_ sender: Any) {
@@ -33,36 +33,29 @@ class LoginViewController: UIViewController {
         
     }
     
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == loginSuccesSegue { // giriş başarılıdır uygulamaya gider
-            statusCheck()
-            if let viewController = segue.destination as? CategoryCollectionViewController {
-                viewController.ownerID = Auth.auth().currentUser?.uid
-                viewController.navigationController?.pushViewController(UIViewController.init(nibName: String(describing: CategoryCollectionViewController.self), bundle: nil), animated: true)
-            } else {
-                ErrorController.alert(alertInfo: "something get wrong", page: self)
-            }
-        }
+    private func showSigninPage() {
+        performSegue(withIdentifier: signinPageSegue, sender: nil)
     }
     
-    private func statusCheck() {
-        
-        if let email = emailTextField.text, let password = passwordTextField.text {
-            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-                if let error = error {
-                    ErrorController.alert(alertInfo: "\(error)", page: self!)
+    private func loginActions() {
+        if emailTextField.text != nil && passwordTextField.text != nil {
+            User.loginUser(email: self.emailTextField.text!, password: self.passwordTextField.text!) { error, authData in
+                if error == nil {
+                    self.ownerID = Auth.auth().currentUser!.uid
+                    self.accessLogin()
                 } else {
-                    self?.navigationController?.performSegue(withIdentifier: loginSuccesSegue, sender: self?.loginButtonPressed(_:))
+                    ErrorController.alert(alertInfo: "Your e-mail has not verified please check your e-mail!", page: self)
                 }
             }
+        } else {
+            ErrorController.alert(alertInfo: "Please fill all the blanks!", page: self)
         }
     }
-    private func showSigninPage() {
-        let signinPage = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: signinPageSegue)
-        
-        self.present(signinPage, animated: true, completion: nil)
+    
+    private func accessLogin() {
+        let mainSb = UIStoryboard(name: "Main", bundle: Bundle.main)            // 1
+               let thirdVC = mainSb.instantiateViewController(identifier: loginSuccesSegue)   // 2
+               show(thirdVC, sender: self)
     }
 }
 

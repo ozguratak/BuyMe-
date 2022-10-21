@@ -33,7 +33,7 @@ class BasketViewController: UIViewController {
     //MARK: - Refresh Control
     private let refreshControl = UIRefreshControl()
     //MARK: temporary variables
-    let ownerID = LoginViewController.ownerID // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
+    let ownerID = LoginViewController().ownerID // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
     
     
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rnh-Wh-TdM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jxk-1B-MS8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -673,7 +673,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ElB-Se-uLX">
             <objects>
-                <tabBarController storyboardIdentifier="categoryView" id="jw2-hC-JdC" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="CategoryCollectionViewController" modalPresentationStyle="fullScreen" id="jw2-hC-JdC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Emc-PN-j7x"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UK9-Ms-rT6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -696,11 +696,11 @@
             <objects>
                 <viewController id="Lm4-r7-Wvh" customClass="SigninViewController" customModule="BuyMe_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q3C-4k-v4a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="gMW-0X-VNJ">
-                                <rect key="frame" x="57" y="453.5" width="300" height="71"/>
+                                <rect key="frame" x="57" y="409.5" width="300" height="71"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHw-jB-8Id">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
@@ -740,7 +740,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy Me! Sign In " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOQ-bw-D1g">
-                                <rect key="frame" x="20" y="220" width="374" height="100"/>
+                                <rect key="frame" x="20" y="176" width="374" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="Qiv-I9-heU"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="R9C-bI-l3s"/>
@@ -751,7 +751,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fO1-hi-CYl">
-                                <rect key="frame" x="79.5" y="532" width="255" height="57"/>
+                                <rect key="frame" x="79.5" y="488" width="255" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="57" id="BYd-6c-1NY"/>
                                     <constraint firstAttribute="width" constant="255" id="KiV-uI-dBt"/>
@@ -769,7 +769,6 @@
                                 <connections>
                                     <action selector="createUSerButtonPressed:" destination="Lm4-r7-Wvh" eventType="touchUpInside" id="n5K-jk-SAD"/>
                                     <action selector="signinButtonPressed:" destination="Jxk-1B-MS8" eventType="touchUpInside" id="61W-c9-TvA"/>
-                                    <segue destination="jw2-hC-JdC" kind="push" identifier="completeSignin" id="GAJ-2Z-7Y9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -793,7 +792,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CyL-Cb-Bh2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1636.2318840579712" y="-496.20535714285711"/>
+            <point key="canvasLocation" x="-1600" y="-2"/>
         </scene>
         <!--Categories-->
         <scene sceneID="G39-Iv-CNJ">
@@ -872,7 +871,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy Me!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRX-RF-rv3">
-                                <rect key="frame" x="20" y="108" width="374" height="100"/>
+                                <rect key="frame" x="20" y="64" width="374" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="zSb-M7-MIg"/>
                                 </constraints>
@@ -894,7 +893,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="Jxk-1B-MS8" eventType="touchUpInside" id="Xy0-0a-9DR"/>
-                                    <segue destination="jw2-hC-JdC" kind="push" identifier="succesLogin" id="5CN-ho-eA5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNe-mK-4tC">
@@ -913,7 +911,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="signinButtonPressed:" destination="Jxk-1B-MS8" eventType="touchUpInside" id="kiz-Of-5hX"/>
-                                    <segue destination="Lm4-r7-Wvh" kind="show" identifier="signinViewSegue" id="zFd-9U-OdJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -936,6 +933,7 @@
                         <outlet property="emailTextField" destination="9qx-p6-mGp" id="pXa-bL-Ke7"/>
                         <outlet property="passwordTextField" destination="GUX-RK-qbJ" id="3he-ca-xqR"/>
                         <outlet property="titleLabel" destination="WRX-RF-rv3" id="kFA-gd-fik"/>
+                        <segue destination="Lm4-r7-Wvh" kind="presentation" identifier="signinViewSegue" id="8tb-MV-4lC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dC-CO-gtX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -958,28 +956,7 @@
             </objects>
             <point key="canvasLocation" x="479.71014492753625" y="1473.8839285714284"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="l2k-lo-FUW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rnh-Wh-TdM" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="msw-3G-V5B">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Jxk-1B-MS8" kind="relationship" relationship="rootViewController" id="3Ug-7e-784"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q96-4G-Oyt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3978.2608695652175" y="-2.0089285714285712"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="5CN-ho-eA5"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="addToBasket" width="30" height="30"/>
         <image name="camera" catalog="system" width="128" height="94"/>
