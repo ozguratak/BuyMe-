@@ -24,7 +24,7 @@ class Category {
         image = UIImage(named: _imageName)
     }
     
-    init (_dictionary: NSDictionary) { // içeriklerin bir dictionary olarak depolanacağı initilazerı tanımladık ve içeriğin yapısını tanımladık.
+    init (_dictionary: NSDictionary) { // içeriklerin bir dictionary olarak depolanacağı initilazerı tanımladık ve içeriğin yapısını tanımladık.
         
         id = _dictionary[keyObjectID] as! String
         name = _dictionary[keyName] as! String

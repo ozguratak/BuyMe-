@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func editProfileButtonPressed(_ sender: Any) {
-     
+     downloadCurrentUser()
     }
     
     
@@ -48,24 +48,43 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var billAdressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     
-    var user: [User] = []
+    var downloadUsers: [User] = []
+    var currentUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh) , name: Notification.Name(userLoggedIn), object: nil)
-        
-        User().downloadUserFromFirestore { userArray in
-            self.user = userArray
-        }
+        downloadCurrentUser()
+        nameTextField.text = currentUser?.firstName
+        lastNameTextField.text = currentUser?.lastName
+       
         
     }
     
-
+    
     @objc func refresh() {
         nameTextField.text = "Çalıştı!"
         lastNameTextField.text = "Çalıştı!"
         shippingAdressTextField.text = "Çalıştı!"
     }
+    
+    func downloadCurrentUser() {
+        User().downloadUserFromFirestore { userArray in
+            if userArray.isEmpty != true {
+                for user in userArray {
+                    if user.email == currentEmail {
+                        self.currentUser = user
+                        return
+                    }
+                }
+            } else {
+                ErrorController.alert(alertInfo: "user indirilemedi.", page: self)
+            }
+        }
+        
+    }
+        
+    
 
     
 }

@@ -95,13 +95,14 @@ class User {
     }
     
     class func currentUser() -> User? {
-        
+        var result: User?
         if Auth.auth().currentUser != nil {
             if let dictionary = UserDefaults.standard.object(forKey: keyCurrentUser) {
+                result = User.init(_dictionary: dictionary as! NSDictionary)
                 return User.init(_dictionary: dictionary as! NSDictionary)
             }
         }
-        return nil
+        return result
     }
     
     //MARK: - User login and register functions
@@ -159,7 +160,7 @@ class User {
 
 extension User {
     func userDictionaryFrom(_ user: User) -> NSDictionary {
-        return NSDictionary(objects: [user.email, user.firstName, user.lastName, user.fullAdress, user.billAdress, user.objectID, user.purchasedItemIds, user.onBoard, user.password, user.phoneNumber], forKeys: [keyUserEmail as NSCopying, keyUserName as NSCopying, keyUserLastName as NSCopying, keyUserAdress as NSCopying, keyUserBillAdress as NSCopying, keyUserPath as NSCopying, keyUserPurchased as NSCopying, keyUserOnBoard as NSCopying, keyUserPassword as NSCopying, keyUserPhone as NSCopying])
+        return NSDictionary(objects: [user.email, user.firstName, user.lastName, user.fullAdress, user.billAdress, user.objectID, user.purchasedItemIds, user.onBoard, user.password, user.phoneNumber, user.profileImage], forKeys: [keyUserEmail as NSCopying, keyUserName as NSCopying, keyUserLastName as NSCopying, keyUserAdress as NSCopying, keyUserBillAdress as NSCopying, keyUserPath as NSCopying, keyUserPurchased as NSCopying, keyUserOnBoard as NSCopying, keyUserPassword as NSCopying, keyUserPhone as NSCopying, keyUserImages as NSCopying])
     }
     
     func saveUserToFirestore(_ user: User) {
@@ -185,6 +186,7 @@ extension User {
             completion(userArray)
         }
     }
+    
     
   func createUserSet(id: String, mail: String) {
         let user = User(_objectId: id, _eMail: mail)

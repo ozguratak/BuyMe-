@@ -75,6 +75,8 @@ public let itemAddToCategory = "itemAddToCategory"
 public let logOutNotification = "logOutDone"
 public let userLoggedIn = "knowingUserLoggedIn"
 
+public var currentEmail = ""
+
 
 //Alert Strings and Keys
 struct AlertKey{

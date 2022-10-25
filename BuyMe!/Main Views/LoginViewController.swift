@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
                             
                             self.accessLogin()
                             userID = Auth.auth().currentUser!.uid
-                            self.checkUser(userID: userID)
+                            currentEmail = self.emailTextField.text!
                             self.loadingActivityIndicator.isHidden = true
                             self.loadingActivityIndicator.stopAnimating()
                         }
@@ -108,26 +108,7 @@ class LoginViewController: UIViewController {
             notificationVC.dismiss(animated: true)
         }
     }
-    private func checkUser(userID: String) {
-        
-        User().downloadUserFromFirestore { userArray in
-            for contentS in userArray {
-                if String(describing: contentS) == userID {
-                    //self.updateUser()
-                    
-                    print("KULLANICI DAHA ÖNCEDEN KAYITLI")
-                   
-                    NotificationCenter.default.post(name: NSNotification.Name(loginSuccesSegue), object: nil)
-                } else {
-                   // self.newUser()
-                    print("YENİ KULLANICI YARATILDI")
-                  
-                    NotificationCenter.default.post(name: NSNotification.Name(loginSuccesSegue), object: nil)
-                }
-            }
-        }
-    }
-    
+      
     private func newUser() {
         
         let user = User()

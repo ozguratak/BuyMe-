@@ -40,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		605CE22CAF9F63CDBE2AFFCB /* Pods-BuyMe!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyMe!.release.xcconfig"; path = "Target Support Files/Pods-BuyMe!/Pods-BuyMe!.release.xcconfig"; sourceTree = "<group>"; };
-		6F29489129082BA30000CBA6 /* Tester.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Tester.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F3661CB28F58DED009A0EB2 /* Skeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skeleton.swift; sourceTree = "<group>"; };
 		6F3661CD28F5992E009A0EB2 /* ItemsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsDetailViewController.swift; sourceTree = "<group>"; };
 		6F377AD929018CB300140B73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +126,6 @@
 				6F6CCD2928ED7AE800827B29 /* Assets.xcassets */,
 				6F6CCD2E28ED7AE800827B29 /* Info.plist */,
 				6FFC7C0528F84E9C002F8D1B /* GoogleService-Info.plist */,
-				6F29489129082BA30000CBA6 /* Tester.playground */,
 			);
 			path = "BuyMe!";
 			sourceTree = "<group>";
