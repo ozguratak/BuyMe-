@@ -20,7 +20,7 @@ class Items {
     var imageLinks: [String]!
 
     init() {
-   // 08507770541 vodafone  online müşteri hizmetleri telefon numarası.
+ 
     }
     
     init(_dictionary: NSDictionary) {

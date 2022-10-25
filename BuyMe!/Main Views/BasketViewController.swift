@@ -31,7 +31,7 @@ class BasketViewController: UIViewController {
     
     var pieceCounter: [String : Int] = [:]
     //MARK: - Refresh Control
-    private let refreshControl = UIRefreshControl()
+    private let refreshControl = UIRefreshControl() 
     //MARK: temporary variables
     let ownerID = userID // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
     
@@ -73,7 +73,7 @@ class BasketViewController: UIViewController {
     //MARK: - Check user account
     func checkAccount() {
         if ownerID == "" {
-            ErrorController.goBack(alertInfo: "FUCK! YOU ARE NOT VERIFIED! GO BACK!!!", showPage: self, goPage: CategoryCollectionViewController())
+            ErrorController.goBack(alertInfo: "Your account has not verified. Please verify your e-mail and contunie to shopping.", showPage: self, goPage: CategoryCollectionViewController()) 
         }
     }
     

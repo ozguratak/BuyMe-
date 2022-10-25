@@ -36,14 +36,20 @@ public let keyBasketItemIDs = "basketItemIDs"
 public var userID = ""
 
 //USer
+public let keyUserImages = ""
+public let keyUserID = ""
+public let keyUserPhone = ""
 public let keyCurrentUser = "currentUser"
-public let keyEmail = "email"
+public let keyUserEmail = "email"
 public let keyUserName = "name"
 public let keyUserLastName = "lastName"
-public let keyUserAdress = "adress"
-public let keyOnBoard = "onBoard"
-public let keyPurchased = "purchasedItems"
-public let keyPassword = "password"
+public let keyUserAdress = "fullAdress"
+public let keyUserOnBoard = "onBoard"
+public let keyUserPurchased = "purchasedItems"
+public let keyUserPassword = "password"
+public let keyUserBillAdress = "billAdress"
+
+public let userFirstID = "firstID"
 
 //Cell Keys
 public let cellIdentifier = "Cell"
@@ -60,11 +66,16 @@ public let appAccess = "categoryView"
 public let loginSuccesSegue = "CategoryCollectionViewController"
 public let signinPageSegue = "signinViewSegue"
 public let signinSucces = "completeSignin"
+public let passwordChange = "passwordChange"
+public let emailChange = "emailChange"
 
 
 //Notification Constants
 public let itemAddNotification = "ItemAdded"
 public let itemAddToCategory = "itemAddToCategory"
+
+public let logOutNotification = "logOutDone"
+public let userLoggedIn = "knowingUserLoggedIn"
 
 
 //Alert Strings and Keys

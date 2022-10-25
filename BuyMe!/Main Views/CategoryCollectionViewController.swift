@@ -21,13 +21,16 @@ class CategoryCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       //  createCategorySet() //DATABASE TEMİZLENDİKTEN SONRA YENİ BİR KATEGORİ GİRİŞİ İÇİN AKTİF EDİLMELİ HARİCİNDE COMMENT KALMALI!!!!
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(navigationCenterActivity) , name: Notification.Name(logOutNotification), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
         loadCategories()
+    }
+    @objc func navigationCenterActivity(){
+        self.dismiss(animated: true)
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -89,4 +92,6 @@ extension CategoryCollectionViewController { // Kategori celli seçildiğinde il
         }
             
     }
+    
+    
 }

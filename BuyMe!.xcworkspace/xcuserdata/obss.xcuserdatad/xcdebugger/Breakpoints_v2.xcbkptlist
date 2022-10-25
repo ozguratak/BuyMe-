@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FD2A6195-C12B-4BA5-A0AA-4F767A0B0E74"
+            uuid = "B4A1019A-EB32-4B44-A2E5-1F00F0D6356C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyMe!/Model/User.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "loginUser(email:password:completion:)"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "createUserSet(id:mail:name:lastName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A11D076E-9D8D-4932-BAC2-3BBA50BD8714"
+            uuid = "451B3EC7-8EED-4878-8F6B-28343D8E82FD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyMe!/Main Views/LoginViewController.swift"
+            filePath = "BuyMe!/Model/User.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "loginActions()"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "saveUserToFirestore(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,19 +12,35 @@ class SigninViewController: UIViewController {
 
     var userMail: String = ""
     var userPassword: String = ""
+    var signInStatus: Bool = false
     
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var eyeButtonOutlet: UIButton!
     @IBOutlet weak var passwordTextfield: UITextField!
 
+    @IBAction func passwordHideActionButton(_ sender: Any) {
+        if passwordTextfield.isSecureTextEntry == true {
+            
+            passwordTextfield.isSecureTextEntry = false
+            eyeButtonOutlet.setImage(UIImage.init(systemName: "eye.slash"), for: .normal)
+            
+        } else {
+            
+            passwordTextfield.isSecureTextEntry = true
+            eyeButtonOutlet.setImage(UIImage.init(systemName: "eye"), for: .normal)
+        }
+    }
     @IBAction func createUSerButtonPressed(_ sender: Any) {
+     
      fieldCheck()
+        User().createUserSet(id: userFirstID, mail: emailTextField.text!, name: "", lastName: "")
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == loginSuccesSegue{ // giriş başarılıdır uygulamaya gider
             let viewController = segue.destination as! CategoryCollectionViewController
-            viewController.ownerID = "1234"
+            viewController.ownerID = ""
         }
     }
 
@@ -34,8 +50,11 @@ class SigninViewController: UIViewController {
             User.registerUser(email: email, password: password) { error in
                 if error != nil {
                     ErrorController.alert(alertInfo: "Verification e-mail sended! Please verify your account!", page: self)
+                    self.signInStatus = true
+                 
                 } else {
                     self.prepare(for: UIStoryboardSegue.init(identifier: signinSucces, source: LoginViewController().self, destination: CategoryCollectionViewController().self), sender: (Any).self)
+                    self.signInStatus = false
                     self.dismiss(animated: true)
                 }
             }

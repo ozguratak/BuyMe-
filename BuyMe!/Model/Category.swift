@@ -35,7 +35,7 @@ class Category {
 
 //MARK: - Downloading Categories from Firebase
 
-func downloadCategoriesFromFirebase(completion: @escaping(_ categoryArray: [Category]) -> Void) { //Uygulama rune dildiğinde bazı verilen databaseden senkronize bir şekilde alınması ve işlenmesi gerekiyor bu yüzden completion içeren bir fonksiyon yaratarak her load edilmede bu fonksiyonu çağrıyoruz. completion firebase içinde olan verileri Category arrayine işliyor ve fonksiyonu çağrıyor.
+func downloadCategoriesFromFirebase(completion: @escaping(_ categoryArray: [Category]) -> Void) { //Uygulama run edildiğinde bazı verilen databaseden senkronize bir şekilde alınması ve işlenmesi gerekiyor bu yüzden completion içeren bir fonksiyon yaratarak her load edilmede bu fonksiyonu çağrıyoruz. completion firebase içinde olan verileri Category arrayine işliyor ve fonksiyonu çağrıyor.
     
     var categoryArray: [Category] = [] // verilerin içine initilaze edilebilmesi için bir array yaratıyoruz.
     
