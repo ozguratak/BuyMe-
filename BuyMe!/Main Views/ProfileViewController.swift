@@ -38,7 +38,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func editProfileButtonPressed(_ sender: Any) {
-     downloadCurrentUser()
+    updateUserInformations()
+        setupUI()
     }
     
     
@@ -47,25 +48,19 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var shippingAdressTextField: UITextField!
     @IBOutlet weak var billAdressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
-    
-    var downloadUsers: [User] = []
+
     var currentUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh) , name: Notification.Name(userLoggedIn), object: nil)
-        downloadCurrentUser()
-        nameTextField.text = currentUser?.firstName
-        lastNameTextField.text = currentUser?.lastName
-       
-        
     }
     
     
     @objc func refresh() {
-        nameTextField.text = "Çalıştı!"
-        lastNameTextField.text = "Çalıştı!"
-        shippingAdressTextField.text = "Çalıştı!"
+     setupUI()
+        presentedViewController?.reloadInputViews()
     }
     
     func downloadCurrentUser() {
@@ -80,6 +75,47 @@ class ProfileViewController: UIViewController {
             } else {
                 ErrorController.alert(alertInfo: "user indirilemedi.", page: self)
             }
+        }
+    }
+    
+    private func setupUI() {
+        if User.currentUser()?.onBoard == false {
+            nameTextField.placeholder = "Name"
+            lastNameTextField.placeholder = "Last Name"
+            phoneTextField.placeholder = "Phone Number"
+            shippingAdressTextField.placeholder = "Shipping Adress"
+            billAdressTextField.placeholder = "Bill Adress"
+        } else {
+            downloadCurrentUser()
+            
+            nameTextField.placeholder = currentUser?.firstName
+            lastNameTextField.placeholder = currentUser?.lastName
+            phoneTextField.placeholder = currentUser?.phoneNumber
+            shippingAdressTextField.placeholder = currentUser?.fullAdress
+            billAdressTextField.placeholder = currentUser?.billAdress
+            
+        }
+    }
+    
+    private func updateUserInformations() {
+        if nameTextField.text != nil && lastNameTextField.text != nil && billAdressTextField.text != nil && shippingAdressTextField.text != nil && phoneTextField.text != nil {
+            User().updateUserInformations(userID: User.currentId(), name: nameTextField.text!, lastName: lastNameTextField.text!, billAdress: billAdressTextField.text!, shippingAdress: shippingAdressTextField.text!, phone: phoneTextField.text!)
+            self.message(message: "Profile has updated.", title: "Well Done!")
+           
+        } else {
+            ErrorController.alert(alertInfo: "please confirm all blanks!", page: self)
+        }
+       
+    }
+    private func message(message: String, title: String, action: Bool, completion: @escaping (_ view: UIView) -> Void) {
+        
+        let notificationVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        
+        if action {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.present(notificationVC, animated: true)
+            }
+            completion(notificationVC.dismiss(animated: true))
         }
         
     }

@@ -1109,8 +1109,8 @@
                                     <action selector="profileImageChangeButtonPressed:" destination="mam-BS-5Ry" eventType="touchUpInside" id="Rj2-8a-qc2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nq9-du-Z89">
-                                <rect key="frame" x="94" y="665" width="226" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nq9-du-Z89">
+                                <rect key="frame" x="94" y="713" width="226" height="31"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Edit Profile">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -1125,9 +1125,11 @@
                                     <action selector="editProfileButtonPressed:" destination="mam-BS-5Ry" eventType="touchUpInside" id="jma-fF-8k8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT2-7D-nYT">
-                                <rect key="frame" x="146" y="705" width="123" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT2-7D-nYT">
+                                <rect key="frame" x="146" y="752" width="123" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="dHn-Hs-iRL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="7"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Delete Account">
@@ -1144,6 +1146,7 @@
                             <constraint firstItem="rrM-4I-cCg" firstAttribute="centerX" secondItem="9DG-Ic-bK6" secondAttribute="centerX" id="9aI-1p-A2k"/>
                             <constraint firstItem="FHC-39-wpg" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="72" id="Beh-fi-Lbq"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="trailing" secondItem="Nq9-du-Z89" secondAttribute="trailing" constant="94" id="FxI-av-KJ0"/>
+                            <constraint firstItem="xT2-7D-nYT" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="146" id="GIK-sK-pID"/>
                             <constraint firstItem="m9s-4d-laO" firstAttribute="top" secondItem="rrM-4I-cCg" secondAttribute="bottom" constant="20" id="Nok-Z5-NWq"/>
                             <constraint firstItem="m9s-4d-laO" firstAttribute="centerX" secondItem="9DG-Ic-bK6" secondAttribute="centerX" id="POc-cw-1us"/>
                             <constraint firstItem="FHC-39-wpg" firstAttribute="top" secondItem="YAu-x1-oBS" secondAttribute="top" constant="10" id="TRM-cF-uKr"/>
@@ -1153,13 +1156,15 @@
                             <constraint firstItem="rrM-4I-cCg" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="16" id="aaD-7N-j5A"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Nq9-du-Z89" secondAttribute="bottom" priority="999" constant="117" id="b5L-yg-W1a"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="trailing" secondItem="FHC-39-wpg" secondAttribute="trailing" constant="72" id="biK-no-a1i"/>
+                            <constraint firstItem="xT2-7D-nYT" firstAttribute="centerX" secondItem="Nq9-du-Z89" secondAttribute="centerX" id="ih9-Ix-9LM"/>
                             <constraint firstItem="Nq9-du-Z89" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="94" id="iqI-q2-nbH"/>
                             <constraint firstItem="FHC-39-wpg" firstAttribute="centerX" secondItem="9DG-Ic-bK6" secondAttribute="centerX" id="qO3-Ej-6wM"/>
                             <constraint firstItem="m9s-4d-laO" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="16" id="qSX-t8-OQe"/>
                             <constraint firstItem="rrM-4I-cCg" firstAttribute="top" secondItem="FHC-39-wpg" secondAttribute="bottom" constant="8" symbolic="YES" id="rjY-OY-Lav"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="m9s-4d-laO" secondAttribute="bottom" priority="999" constant="156" id="sMq-i4-j6F"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="trailing" secondItem="m9s-4d-laO" secondAttribute="trailing" constant="16" id="tR6-8c-hHK"/>
-                            <constraint firstItem="Nq9-du-Z89" firstAttribute="top" secondItem="m9s-4d-laO" secondAttribute="bottom" constant="16" id="uZS-aa-xQh"/>
+                            <constraint firstItem="Nq9-du-Z89" firstAttribute="top" secondItem="m9s-4d-laO" secondAttribute="bottom" constant="8" id="uZS-aa-xQh"/>
+                            <constraint firstItem="xT2-7D-nYT" firstAttribute="top" secondItem="Nq9-du-Z89" secondAttribute="bottom" constant="8" id="vye-hz-x8J"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="C9z-tf-zPJ">

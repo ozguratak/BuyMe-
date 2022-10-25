@@ -197,6 +197,8 @@ extension User {
         
         let user = User()
         
+        user.objectID = userID
+        user.email = currentEmail
         user.firstName = name
         user.lastName = lastName
         user.fullAdress = shippingAdress
