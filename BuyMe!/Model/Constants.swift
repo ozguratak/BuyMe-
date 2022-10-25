@@ -36,9 +36,9 @@ public let keyBasketItemIDs = "basketItemIDs"
 public var userID = ""
 
 //USer
-public let keyUserImages = ""
-public let keyUserID = ""
-public let keyUserPhone = ""
+public let keyUserImages = "imageLink"
+public let keyUserID = "unknownUser"
+public let keyUserPhone = "phoneNumber"
 public let keyCurrentUser = "currentUser"
 public let keyUserEmail = "email"
 public let keyUserName = "name"
@@ -48,8 +48,6 @@ public let keyUserOnBoard = "onBoard"
 public let keyUserPurchased = "purchasedItems"
 public let keyUserPassword = "password"
 public let keyUserBillAdress = "billAdress"
-
-
 
 //Cell Keys
 public let cellIdentifier = "Cell"

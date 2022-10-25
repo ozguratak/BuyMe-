@@ -16,6 +16,8 @@ class User {
     var firstName: String = ""
     var lastName: String = ""
     var password: String = ""
+    var phoneNumber: String = ""
+    var profileImage: String = ""
     
     var purchasedItemIds: [String] = []
     var fullAdress: String = ""
@@ -38,6 +40,8 @@ class User {
         billAdress = ""
         onBoard = false
         purchasedItemIds = []
+        phoneNumber = ""
+        profileImage = ""
         
     }
     
@@ -45,6 +49,14 @@ class User {
         
         fullAdress = _dictionary[keyUserAdress] as! String
         billAdress = _dictionary[keyUserBillAdress] as! String
+        phoneNumber = _dictionary[keyUserPhone] as! String
+       
+        
+        if let image = _dictionary[keyUserImages] {
+            profileImage = image as! String
+        } else {
+            profileImage = ""
+        }
         
         if let mail = _dictionary[keyUserEmail] {
             email = mail as! String
@@ -118,15 +130,16 @@ class User {
             
             completion(error)
             if error == nil {
+                User().createUserSet(id: currentId(), mail: email)
                 authDataResult!.user.sendEmailVerification { error in
                     print("auth e mail verification error : \(String(describing: error))")
                 }
                 
             } else {
-                print("usercreating error: \(String(describing: error))")
+                print("user creating error: \(String(describing: error))")
             }
         }
-       User().createUserSet(id: Auth.auth().currentUser!.uid, mail: email)
+       
         
     }
     
@@ -146,12 +159,11 @@ class User {
 
 extension User {
     func userDictionaryFrom(_ user: User) -> NSDictionary {
-        return NSDictionary(objects: [user.email, user.firstName, user.lastName, user.fullAdress, user.billAdress, user.objectID, user.purchasedItemIds, user.onBoard, user.password], forKeys: [keyUserEmail as NSCopying, keyUserName as NSCopying, keyUserLastName as NSCopying, keyUserAdress as NSCopying, keyUserBillAdress as NSCopying, keyUserPath as NSCopying, keyUserPurchased as NSCopying, keyUserOnBoard as NSCopying, keyUserPassword as NSCopying])
+        return NSDictionary(objects: [user.email, user.firstName, user.lastName, user.fullAdress, user.billAdress, user.objectID, user.purchasedItemIds, user.onBoard, user.password, user.phoneNumber], forKeys: [keyUserEmail as NSCopying, keyUserName as NSCopying, keyUserLastName as NSCopying, keyUserAdress as NSCopying, keyUserBillAdress as NSCopying, keyUserPath as NSCopying, keyUserPurchased as NSCopying, keyUserOnBoard as NSCopying, keyUserPassword as NSCopying, keyUserPhone as NSCopying])
     }
     
     func saveUserToFirestore(_ user: User) {
         firebaseReference(.User).document(String(describing: user.objectID)).setData(userDictionaryFrom(user) as! [String : Any])
-        
     }
     
     func downloadUserFromFirestore(completion: @escaping (_ userArray: [User]) -> Void) {
@@ -179,7 +191,7 @@ extension User {
      self.saveUserToFirestore(user)
     }
     
-    func updateUserInformations(userID: String, name: String, lastName: String, billAdress: String, shippingAdress: String) {
+    func updateUserInformations(userID: String, name: String, lastName: String, billAdress: String, shippingAdress: String, phone: String) {
         
         let user = User()
         
@@ -188,7 +200,29 @@ extension User {
         user.fullAdress = shippingAdress
         user.billAdress = billAdress
         user.onBoard = true
+        user.phoneNumber = phone
         
+        self.saveUserToFirestore(user)
+    }
+    func updateProfileImage(imageLink: String) {
+        
+        let user = User()
+        
+        user.profileImage = imageLink
+        self.saveUserToFirestore(user)
+    }
+    
+    func changePassword(userID: String, newPassword: String) {
+        let user = User()
+        
+        user.password = newPassword
+        self.saveUserToFirestore(user)
+    }
+    
+    func changeMail(userID: String, newMail: String) {
+        let user = User()
+        
+        user.email = newMail
         self.saveUserToFirestore(user)
     }
     

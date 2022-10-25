@@ -46,10 +46,17 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var shippingAdressTextField: UITextField!
     @IBOutlet weak var billAdressTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    
+    var user: [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh) , name: Notification.Name(userLoggedIn), object: nil)
+        
+        User().downloadUserFromFirestore { userArray in
+            self.user = userArray
+        }
         
     }
     

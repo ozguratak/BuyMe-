@@ -1173,7 +1173,7 @@
                         <outlet property="billAdressTextField" destination="Z6X-Ef-RQB" id="u88-H5-orp"/>
                         <outlet property="lastNameTextField" destination="91J-aj-hDj" id="8hj-Sq-lWe"/>
                         <outlet property="nameTextField" destination="5pt-aG-xtK" id="52g-Zv-HVU"/>
-                        <outlet property="phoneTextField" destination="7Z4-0w-2Bt" id="Pzx-il-THa"/>
+                        <outlet property="phoneTextField" destination="7Z4-0w-2Bt" id="80e-sm-ho3"/>
                         <outlet property="profileImage" destination="FHC-39-wpg" id="8Ey-lS-7cX"/>
                         <outlet property="shippingAdressTextField" destination="JGq-BO-9JA" id="GHL-7x-1zF"/>
                         <segue destination="U2I-Sj-Fml" kind="show" identifier="emailChange" id="Pak-CV-7oX"/>
