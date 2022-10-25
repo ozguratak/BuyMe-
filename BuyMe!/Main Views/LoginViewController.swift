@@ -40,9 +40,26 @@ class LoginViewController: UIViewController {
         showSigninPage()
     }
     @IBAction func resendVerifiedMail(_ sender: Any) {
-        User().resendVerifyMail()
-        ErrorController.alert(alertInfo: "Verification mail sended. Please check your e-mail.", page: self)
+        if Auth.auth().currentUser?.isEmailVerified == false {
+            User().resendVerifyMail()
+            ErrorController.alert(alertInfo: "Verification mail sended. Please check your e-mail.", page: self)
+        } else {
+            ErrorController.alert(alertInfo: "Your account has been already verified.", page: self)
+        }
+        
     }
+    @IBAction func forgetPasswordButtonPressed(_ sender: Any) {
+        if emailTextField.text != nil {
+            Auth.auth().sendPasswordReset(withEmail: emailTextField.text!)
+            message(message: "Password reset mail sended.", title: "Nice", action: true) { action in
+                action.dismiss(animated: true)
+            }
+        } else {
+            ErrorController.alert(alertInfo: "please fill all the blanks.", page: self)
+        }
+        
+    }
+    
     
     
     override func viewDidLoad() {
@@ -88,10 +105,14 @@ class LoginViewController: UIViewController {
                     
                 } else {
                     ErrorController.alert(alertInfo: String(describing: error!), page: self)
+                    self.loadingActivityIndicator.isHidden = true
+                    self.loadingActivityIndicator.stopAnimating()
                 }
             }
         } else {
             ErrorController.alert(alertInfo: "Please fill all the blanks!", page: self)
+            self.loadingActivityIndicator.isHidden = true
+            self.loadingActivityIndicator.stopAnimating()
         }
     }
     
@@ -110,7 +131,9 @@ class LoginViewController: UIViewController {
         let notificationVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         self.present(notificationVC, animated: true)
         if action {
-            notificationVC.dismiss(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                notificationVC.dismiss(animated: true)
+            }
         }
         completion(notificationVC)
     }

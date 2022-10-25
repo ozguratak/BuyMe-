@@ -966,6 +966,15 @@
                                     <action selector="resendVerifiedMail:" destination="Jxk-1B-MS8" eventType="touchUpInside" id="EHl-OH-XEN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJP-8l-r9c">
+                                <rect key="frame" x="52" y="631" width="300" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Forget Password?"/>
+                                <connections>
+                                    <action selector="forgetPasswordButtonPressed:" destination="Jxk-1B-MS8" eventType="touchUpInside" id="tMB-Qw-Rrb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S27-co-B7Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
