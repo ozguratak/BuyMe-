@@ -39,6 +39,10 @@ class LoginViewController: UIViewController {
     @IBAction func signinButtonPressed(_ sender: Any) {
         showSigninPage()
     }
+    @IBAction func resendVerifiedMail(_ sender: Any) {
+        User().resendVerifyMail()
+        ErrorController.alert(alertInfo: "Verification mail sended. Please check your e-mail.", page: self)
+    }
     
     
     override func viewDidLoad() {
@@ -61,18 +65,19 @@ class LoginViewController: UIViewController {
                 if error == nil {
                     
                     if authData == true {
-                        self.message(message: "Verified access. Welcome!", title: "Good News!", action: true)
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            
-                            self.accessLogin()
-                            userID = Auth.auth().currentUser!.uid
-                            currentEmail = self.emailTextField.text!
-                            self.loadingActivityIndicator.isHidden = true
-                            self.loadingActivityIndicator.stopAnimating()
+                        self.accessLogin()
+                        userID = Auth.auth().currentUser!.uid
+                        currentEmail = self.emailTextField.text!
+                        self.loadingActivityIndicator.isHidden = true
+                        self.loadingActivityIndicator.stopAnimating()
+                        self.message(message: "Verified access. Welcome!", title: "Good News!", action: true) { action in
+                            action.dismiss(animated: true)
                         }
+                       
                     } else {
-                        self.message(message: "Your e-mail was not verified. Please check your e-mail.", title: "Ooops!", action: true)
+                        self.message(message: "Your e-mail was not verified. Please check your e-mail.", title: "Oops!", action: true) { action in
+                            action.dismiss(animated: true)
+                        }
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             self.accessLogin()
@@ -100,13 +105,14 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func message(message: String, title: String, action: Bool) {
+    private func message(message: String, title: String, action: Bool, completion: @escaping (_ action: UIAlertController) -> Void) {
         
         let notificationVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         self.present(notificationVC, animated: true)
         if action {
             notificationVC.dismiss(animated: true)
         }
+        completion(notificationVC)
     }
       
     private func newUser() {

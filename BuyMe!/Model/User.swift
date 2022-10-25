@@ -50,7 +50,7 @@ class User {
         fullAdress = _dictionary[keyUserAdress] as! String
         billAdress = _dictionary[keyUserBillAdress] as! String
         phoneNumber = _dictionary[keyUserPhone] as! String
-       
+        
         
         if let image = _dictionary[keyUserImages] {
             profileImage = image as! String
@@ -125,7 +125,7 @@ class User {
         }
     }
     
-   class func registerUser(email: String, password: String, completion: @escaping (_ error: Error?) -> Void) {
+    class func registerUser(email: String, password: String, completion: @escaping (_ error: Error?) -> Void) {
         
         Auth.auth().createUser(withEmail: email, password: password) { authDataResult, error in
             
@@ -140,7 +140,7 @@ class User {
                 print("user creating error: \(String(describing: error))")
             }
         }
-       
+        
         
     }
     
@@ -188,9 +188,9 @@ extension User {
     }
     
     
-  func createUserSet(id: String, mail: String) {
+    func createUserSet(id: String, mail: String) {
         let user = User(_objectId: id, _eMail: mail)
-     self.saveUserToFirestore(user)
+        self.saveUserToFirestore(user)
     }
     
     func updateUserInformations(userID: String, name: String, lastName: String, billAdress: String, shippingAdress: String, phone: String) {
@@ -216,19 +216,37 @@ extension User {
         self.saveUserToFirestore(user)
     }
     
-    func changePassword(userID: String, newPassword: String) {
+    func changePassword(newPassword: String, page: UIViewController) {
         let user = User()
         
-        user.password = newPassword
-        self.saveUserToFirestore(user)
+        Auth.auth().currentUser?.updatePassword(to: newPassword, completion: { error in
+            if error != nil {
+                ErrorController.alert(alertInfo: "An error occured while changing the password!", page: page)
+            } else {
+                user.password = newPassword
+                self.saveUserToFirestore(user)
+            }
+        })
     }
     
-    func changeMail(userID: String, newMail: String) {
+    func changeMail(newMail: String, page: UIViewController) {
         let user = User()
-        
-        user.email = newMail
-        self.saveUserToFirestore(user)
+        Auth.auth().currentUser?.updateEmail(to: newMail, completion: { error in
+            if error != nil {
+                ErrorController.alert(alertInfo: "An error occurred while changing the email", page: page)
+            } else {
+                user.email = newMail
+                self.saveUserToFirestore(user)
+            }
+        })
     }
     
-    
+    func resendVerifyMail() {
+        let user = Auth.auth().currentUser
+        user?.reload()
+        if user?.isEmailVerified == false {
+            user?.sendEmailVerification()
+            
+        }
+    }
 }

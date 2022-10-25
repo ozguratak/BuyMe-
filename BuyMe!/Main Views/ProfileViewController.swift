@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func editProfileButtonPressed(_ sender: Any) {
-    updateUserInformations()
+        updateUserInformations()
         setupUI()
     }
     
@@ -50,6 +50,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
 
     var currentUser: User?
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setupUI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +83,8 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupUI() {
-        if User.currentUser()?.onBoard == false {
+        if User.currentUser()?.onBoard != nil {
+            
             nameTextField.placeholder = "Name"
             lastNameTextField.placeholder = "Last Name"
             phoneTextField.placeholder = "Phone Number"
@@ -93,30 +98,28 @@ class ProfileViewController: UIViewController {
             phoneTextField.placeholder = currentUser?.phoneNumber
             shippingAdressTextField.placeholder = currentUser?.fullAdress
             billAdressTextField.placeholder = currentUser?.billAdress
-            
         }
     }
     
     private func updateUserInformations() {
         if nameTextField.text != nil && lastNameTextField.text != nil && billAdressTextField.text != nil && shippingAdressTextField.text != nil && phoneTextField.text != nil {
             User().updateUserInformations(userID: User.currentId(), name: nameTextField.text!, lastName: lastNameTextField.text!, billAdress: billAdressTextField.text!, shippingAdress: shippingAdressTextField.text!, phone: phoneTextField.text!)
-            self.message(message: "Profile has updated.", title: "Well Done!")
+            self.message(message: "Profile succesfully updated!", title: "Good!", action: true) { action in
+                action.dismiss(animated: true)
+            }
            
         } else {
-            ErrorController.alert(alertInfo: "please confirm all blanks!", page: self)
+            ErrorController.alert(alertInfo: "Please confirm all blanks!", page: self)
         }
        
     }
-    private func message(message: String, title: String, action: Bool, completion: @escaping (_ view: UIView) -> Void) {
+    private func message(message: String, title: String, action: Bool, completion: @escaping (_ action: UIAlertController) -> Void) {
         
         let notificationVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        
         if action {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 self.present(notificationVC, animated: true)
-            }
-            completion(notificationVC.dismiss(animated: true))
         }
+        completion(notificationVC)
         
     }
         

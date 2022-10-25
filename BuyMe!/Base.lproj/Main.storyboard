@@ -840,7 +840,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hcS-42-voW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Basket" id="j8n-5M-kgK">
-                        <imageReference key="selectedImage" image="cart" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="cart" catalog="system" symbolScale="default"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="578-Zz-dL0">
@@ -865,7 +865,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="pg5-1p-6Mg">
-                                <rect key="frame" x="62" y="409.5" width="300" height="77"/>
+                                <rect key="frame" x="52" y="377" width="300" height="77.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9qx-p6-mGp">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
@@ -877,7 +877,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GUX-RK-qbJ">
-                                        <rect key="frame" x="0.0" y="43" width="300" height="34"/>
+                                        <rect key="frame" x="0.0" y="43" width="300" height="34.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="XxN-5V-zR7"/>
                                         </constraints>
@@ -893,7 +893,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy Me!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRX-RF-rv3">
-                                <rect key="frame" x="20" y="64" width="374" height="102"/>
+                                <rect key="frame" x="20" y="64" width="364" height="37.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="zSb-M7-MIg"/>
                                 </constraints>
@@ -902,7 +902,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPv-7m-4Me">
-                                <rect key="frame" x="79.5" y="494" width="255" height="57"/>
+                                <rect key="frame" x="74.5" y="462" width="255" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="255" id="1o1-ta-BHv"/>
                                     <constraint firstAttribute="height" constant="57" id="owK-qM-Zpf"/>
@@ -919,7 +919,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNe-mK-4tC">
-                                <rect key="frame" x="79.5" y="559" width="255" height="57"/>
+                                <rect key="frame" x="74.5" y="527" width="255" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="255" id="15w-Gp-G8m"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="57" id="9b3-Hd-QO4"/>
@@ -938,7 +938,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7D3-CT-ll7">
-                                <rect key="frame" x="370" y="490.5" width="26" height="20"/>
+                                <rect key="frame" x="360" y="426" width="26" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="26" id="1lW-Iu-frR"/>
                                     <constraint firstAttribute="height" constant="20" id="hU3-Tw-ga6"/>
@@ -952,8 +952,20 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hv5-Ml-BFx">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <rect key="frame" x="183.5" y="397.5" width="37" height="37"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGQ-HV-nhO">
+                                <rect key="frame" x="52" y="592" width="300" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="CRE-tx-h40"/>
+                                    <constraint firstAttribute="width" constant="300" id="n3x-oX-FZk"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Resend Verified E-mail"/>
+                                <connections>
+                                    <action selector="resendVerifiedMail:" destination="Jxk-1B-MS8" eventType="touchUpInside" id="EHl-OH-XEN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S27-co-B7Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -969,10 +981,13 @@
                             <constraint firstItem="S27-co-B7Y" firstAttribute="trailing" secondItem="7D3-CT-ll7" secondAttribute="trailing" constant="18" id="RGe-1r-6nI"/>
                             <constraint firstItem="mPv-7m-4Me" firstAttribute="top" secondItem="pg5-1p-6Mg" secondAttribute="bottom" constant="7.5" id="TDw-C5-cAc"/>
                             <constraint firstItem="WRX-RF-rv3" firstAttribute="top" secondItem="S27-co-B7Y" secondAttribute="top" constant="20" id="Urg-Ma-PXL"/>
+                            <constraint firstItem="gGQ-HV-nhO" firstAttribute="top" secondItem="MNe-mK-4tC" secondAttribute="bottom" constant="8" symbolic="YES" id="Xp6-mb-jUv"/>
+                            <constraint firstItem="S27-co-B7Y" firstAttribute="bottom" secondItem="gGQ-HV-nhO" secondAttribute="bottom" constant="174.5" id="ldi-Eb-2NA"/>
                             <constraint firstItem="7D3-CT-ll7" firstAttribute="leading" secondItem="pg5-1p-6Mg" secondAttribute="trailing" constant="8" id="mDC-9I-aU5"/>
                             <constraint firstItem="S27-co-B7Y" firstAttribute="trailing" secondItem="WRX-RF-rv3" secondAttribute="trailing" constant="20" id="mgP-gd-uWY"/>
                             <constraint firstItem="7D3-CT-ll7" firstAttribute="top" secondItem="WRX-RF-rv3" secondAttribute="bottom" constant="324.5" id="pM6-jV-Yjt"/>
                             <constraint firstItem="MNe-mK-4tC" firstAttribute="centerX" secondItem="Qsb-m4-fIv" secondAttribute="centerX" id="ugj-NR-KeT"/>
+                            <constraint firstItem="gGQ-HV-nhO" firstAttribute="centerX" secondItem="Qsb-m4-fIv" secondAttribute="centerX" id="w5H-Kv-MlN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kRk-ze-b2I"/>
@@ -1189,27 +1204,27 @@
             </objects>
             <point key="canvasLocation" x="1389.8550724637682" y="1473.8839285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Mail Change View Controller-->
         <scene sceneID="gLl-Z9-yS8">
             <objects>
-                <viewController id="U2I-Sj-Fml" sceneMemberID="viewController">
+                <viewController id="U2I-Sj-Fml" customClass="MailChangeViewController" customModule="BuyMe_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="es3-mq-3s8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oldemail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rmI-gr-x17">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Default E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rmI-gr-x17">
                                 <rect key="frame" x="20" y="88" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mgc-Oc-7xu">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mgc-Oc-7xu">
                                 <rect key="frame" x="20" y="130" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm new email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9kL-rC-LEc">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm New E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9kL-rC-LEc">
                                 <rect key="frame" x="20" y="172" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1219,26 +1234,34 @@
                                 <rect key="frame" x="107" y="214" width="202" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Update E-Mail" cornerStyle="dynamic">
+                                <buttonConfiguration key="configuration" style="plain" title="Change E-Mail" cornerStyle="dynamic">
                                     <backgroundConfiguration key="background" cornerRadius="25">
                                         <color key="backgroundColor" red="0.3903618157" green="0.65146481990000005" blue="0.66948342319999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="changeButtonPressed:" destination="U2I-Sj-Fml" eventType="touchUpInside" id="Dgq-Hi-eFu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="etB-PR-9Uf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="3wp-tO-YUl"/>
+                    <connections>
+                        <outlet property="defaultEmailTextField" destination="rmI-gr-x17" id="OCB-8V-5YX"/>
+                        <outlet property="newEmailConfirmTextField" destination="9kL-rC-LEc" id="xbN-h7-Pnh"/>
+                        <outlet property="newEmailTextField" destination="Mgc-Oc-7xu" id="d0a-mY-1dQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2m-Eu-AAj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2333" y="1154"/>
         </scene>
-        <!--View Controller-->
+        <!--Password Change View Controller-->
         <scene sceneID="jeO-CW-xf9">
             <objects>
-                <viewController id="cbM-kJ-pMS" sceneMemberID="viewController">
+                <viewController id="cbM-kJ-pMS" customClass="PasswordChangeViewController" customModule="BuyMe_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ToU-f4-3XH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1249,13 +1272,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msa-wg-UY6">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msa-wg-UY6">
                                 <rect key="frame" x="20" y="130" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm new password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IxM-mQ-6f7">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IxM-mQ-6f7">
                                 <rect key="frame" x="20" y="172" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1265,17 +1288,25 @@
                                 <rect key="frame" x="106" y="214" width="202" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Update E-Mail" cornerStyle="dynamic">
+                                <buttonConfiguration key="configuration" style="plain" title="Change Password" cornerStyle="dynamic">
                                     <backgroundConfiguration key="background" cornerRadius="25">
                                         <color key="backgroundColor" red="0.3903618157" green="0.65146481990000005" blue="0.66948342319999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="changeButtonPressed:" destination="cbM-kJ-pMS" eventType="touchUpInside" id="T9I-km-hTU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LDv-K5-S5l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="sbW-6r-dte"/>
+                    <connections>
+                        <outlet property="newPasswordConfirmationTextField" destination="IxM-mQ-6f7" id="0Qt-dG-r29"/>
+                        <outlet property="newPasswordTextField" destination="msa-wg-UY6" id="hcj-5L-BoD"/>
+                        <outlet property="oldPasswordTextField" destination="VWo-Vh-mMU" id="Wgg-V4-AZ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZN-l2-nrv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
