@@ -49,7 +49,7 @@ public let keyUserPurchased = "purchasedItems"
 public let keyUserPassword = "password"
 public let keyUserBillAdress = "billAdress"
 
-public let userFirstID = "firstID"
+
 
 //Cell Keys
 public let cellIdentifier = "Cell"

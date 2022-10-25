@@ -33,7 +33,7 @@ class SigninViewController: UIViewController {
     @IBAction func createUSerButtonPressed(_ sender: Any) {
      
      fieldCheck()
-        User().createUserSet(id: userFirstID, mail: emailTextField.text!, name: "", lastName: "")
+        
     }
     
     

@@ -28,12 +28,12 @@ class User {
         
     }
     
-    init (_objectId: String, _eMail: String, _uFirstName: String, _uLastName: String) {
+    init (_objectId: String, _eMail: String) {
         
         objectID = _objectId
         email = _eMail
-        firstName = _uFirstName
-        lastName = _uLastName
+        firstName = ""
+        lastName = ""
         fullAdress = ""
         billAdress = ""
         onBoard = false
@@ -126,7 +126,7 @@ class User {
                 print("usercreating error: \(String(describing: error))")
             }
         }
-       User().createUserSet(id: Auth.auth().currentUser!.uid, mail: email, name: "", lastName: "")
+       User().createUserSet(id: Auth.auth().currentUser!.uid, mail: email)
         
     }
     
@@ -174,8 +174,8 @@ extension User {
         }
     }
     
-  func createUserSet(id: String, mail: String, name: String, lastName: String) {
-        let user = User(_objectId: id, _eMail: mail, _uFirstName: name, _uLastName: lastName)
+  func createUserSet(id: String, mail: String) {
+        let user = User(_objectId: id, _eMail: mail)
      self.saveUserToFirestore(user)
     }
     

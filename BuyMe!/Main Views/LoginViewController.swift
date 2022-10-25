@@ -112,7 +112,7 @@ class LoginViewController: UIViewController {
         
         User().downloadUserFromFirestore { userArray in
             for contentS in userArray {
-                if String(describing: contentS) == userFirstID {
+                if String(describing: contentS) == userID {
                     //self.updateUser()
                     
                     print("KULLANICI DAHA ÖNCEDEN KAYITLI")
