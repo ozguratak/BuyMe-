@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
     @IBAction func forgetPasswordButtonPressed(_ sender: Any) {
         if emailTextField.text != nil {
             Auth.auth().sendPasswordReset(withEmail: emailTextField.text!)
-            message(message: "Password reset mail sended.", title: "Nice", action: true) { action in
+            ErrorController.message(page: self,message: "Password reset mail sended.", title: "Nice", action: true) { action in
                 action.dismiss(animated: true)
             }
         } else {
@@ -87,12 +87,12 @@ class LoginViewController: UIViewController {
                         currentEmail = self.emailTextField.text!
                         self.loadingActivityIndicator.isHidden = true
                         self.loadingActivityIndicator.stopAnimating()
-                        self.message(message: "Verified access. Welcome!", title: "Good News!", action: true) { action in
+                        ErrorController.message(page: self, message: "Verified access. Welcome!", title: "Good News!", action: true) { action in
                             action.dismiss(animated: true)
                         }
                        
                     } else {
-                        self.message(message: "Your e-mail was not verified. Please check your e-mail.", title: "Oops!", action: true) { action in
+                        ErrorController.message(page: self, message: "Your e-mail was not verified. Please check your e-mail.", title: "Oops!", action: true) { action in
                             action.dismiss(animated: true)
                         }
                         
@@ -125,18 +125,6 @@ class LoginViewController: UIViewController {
         
         
     }
-    
-    private func message(message: String, title: String, action: Bool, completion: @escaping (_ action: UIAlertController) -> Void) {
-        
-        let notificationVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        self.present(notificationVC, animated: true)
-        if action {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                notificationVC.dismiss(animated: true)
-            }
-        }
-        completion(notificationVC)
-    }
       
     private func newUser() {
         
@@ -154,12 +142,6 @@ class LoginViewController: UIViewController {
         
         User().saveUserToFirestore(user)
     }
-    
-    private func updateUser() {
-        //user: User, withValues: [String : Any]
-        
-        print("!!!USER ZATEN KAYITLI!!!!")
-        
-    }
+
 }
 

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E5F7EF9-7190-4AAB-A8FF-949E17F2A3AE"
+            uuid = "3407052F-0BFE-480B-A4A2-11B4BF09B67A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyMe!/Main Views/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "updateUserInformations()"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "deleteUserInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

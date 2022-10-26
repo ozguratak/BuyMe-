@@ -218,23 +218,27 @@ extension User {
     
     func changePassword(newPassword: String, page: UIViewController) {
         let user = User()
-        
+        Auth.auth().currentUser?.reload()
         Auth.auth().currentUser?.updatePassword(to: newPassword, completion: { error in
             if error != nil {
                 ErrorController.alert(alertInfo: "An error occured while changing the password!", page: page)
             } else {
+                user.objectID = userID
                 user.password = newPassword
                 self.saveUserToFirestore(user)
+                
             }
         })
     }
     
     func changeMail(newMail: String, page: UIViewController) {
         let user = User()
+        Auth.auth().currentUser?.reload()
         Auth.auth().currentUser?.updateEmail(to: newMail, completion: { error in
             if error != nil {
                 ErrorController.alert(alertInfo: "An error occurred while changing the email", page: page)
             } else {
+                user.objectID = userID
                 user.email = newMail
                 self.saveUserToFirestore(user)
             }
@@ -248,5 +252,10 @@ extension User {
             user?.sendEmailVerification()
             
         }
+    }
+    
+    func deleteUser() {
+        let user = Auth.auth().currentUser
+        user?.delete()
     }
 }

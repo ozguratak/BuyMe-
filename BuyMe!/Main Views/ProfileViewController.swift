@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIButton!
     
     @IBAction func deleteAccount(_ sender: Any) {
+        ErrorController.deleteAccount(page: self)
     }
     
     @IBAction func profileImageChangeButtonPressed(_ sender: Any) {
@@ -50,20 +51,18 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
 
     var currentUser: User?
-    
-    override func viewDidAppear(_ animated: Bool) {
-        setupUI()
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        downloadCurrentUser()
+       
         NotificationCenter.default.addObserver(self, selector: #selector(refresh) , name: Notification.Name(userLoggedIn), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteUserInfo), name: Notification.Name(deleteCurrentUser), object: nil)
     }
     
     
     @objc func refresh() {
-     setupUI()
         presentedViewController?.reloadInputViews()
     }
     
@@ -73,6 +72,7 @@ class ProfileViewController: UIViewController {
                 for user in userArray {
                     if user.email == currentEmail {
                         self.currentUser = user
+                        self.setupUI()
                         return
                     }
                 }
@@ -83,21 +83,19 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupUI() {
-        if User.currentUser()?.onBoard != nil {
-            
-            nameTextField.placeholder = "Name"
-            lastNameTextField.placeholder = "Last Name"
-            phoneTextField.placeholder = "Phone Number"
-            shippingAdressTextField.placeholder = "Shipping Adress"
-            billAdressTextField.placeholder = "Bill Adress"
-        } else {
-            downloadCurrentUser()
+        if currentUser?.onBoard != nil {
             
             nameTextField.placeholder = currentUser?.firstName
             lastNameTextField.placeholder = currentUser?.lastName
             phoneTextField.placeholder = currentUser?.phoneNumber
             shippingAdressTextField.placeholder = currentUser?.fullAdress
             billAdressTextField.placeholder = currentUser?.billAdress
+        } else {
+            nameTextField.placeholder = "Name"
+            lastNameTextField.placeholder = "Last Name"
+            phoneTextField.placeholder = "Phone Number"
+            shippingAdressTextField.placeholder = "Shipping Adress"
+            billAdressTextField.placeholder = "Bill Adress"
         }
     }
     
@@ -113,6 +111,7 @@ class ProfileViewController: UIViewController {
         }
        
     }
+    
     private func message(message: String, title: String, action: Bool, completion: @escaping (_ action: UIAlertController) -> Void) {
         
         let notificationVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
@@ -120,12 +119,29 @@ class ProfileViewController: UIViewController {
                 self.present(notificationVC, animated: true)
         }
         completion(notificationVC)
-        
     }
+    
+    
+    var users = [User()]
+    @objc func deleteUserInfo() {
         
-    
-
-    
+        User().downloadUserFromFirestore { userArray in
+            for user in userArray {
+                self.users.append(user)
+            }
+            for i in 0..<self.users.count {
+                if users.contains(where: objectID[i]) {
+                    self.users.remove(at: i)
+                    User().deleteUser()
+                    for newusers in self.users {
+                        User().createUserSet(id: newusers.objectID, mail: newusers.email)
+                    }
+                    NotificationCenter.default.post(name: NSNotification.Name(logOutNotification), object: nil)
+                }
+            }
+            
+        }
+    }
 }
 
 

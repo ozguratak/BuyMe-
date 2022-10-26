@@ -22,6 +22,7 @@ class CategoryCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
       //  createCategorySet() //DATABASE TEMİZLENDİKTEN SONRA YENİ BİR KATEGORİ GİRİŞİ İÇİN AKTİF EDİLMELİ HARİCİNDE COMMENT KALMALI!!!!
         NotificationCenter.default.addObserver(self, selector: #selector(navigationCenterActivity) , name: Notification.Name(logOutNotification), object: nil)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

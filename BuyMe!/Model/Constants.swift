@@ -76,6 +76,8 @@ public let logOutNotification = "logOutDone"
 public let userLoggedIn = "knowingUserLoggedIn"
 
 public var currentEmail = ""
+public let deleteCurrentUser = "deleteCurrentUser"
+public let deletingComplete = "deletingComplete"
 
 
 //Alert Strings and Keys

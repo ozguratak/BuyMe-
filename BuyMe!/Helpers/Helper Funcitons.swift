@@ -45,6 +45,37 @@ class ErrorController {
         alertVC.addAction(continueButton)
         page.present(alertVC, animated: true)
     }
+    
+    static func message(page: UIViewController, message: String, title: String, action: Bool, completion: @escaping (_ action: UIAlertController) -> Void) {
+        
+        let notificationVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        page.present(notificationVC, animated: true)
+        if action {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                notificationVC.dismiss(animated: true)
+            }
+        }
+        completion(notificationVC)
+    }
+    
+    static func deleteAccount(page: UIViewController) {
+        let alertVC = UIAlertController(title: "Caution!",
+                                        message: "We are sorry for loosing you. Are you sure deletin your account?",
+                                        preferredStyle: .alert)
+       
+        let deleteButton = UIAlertAction(title: "Delete", style: .default) { action in
+            NotificationCenter.default.post(name: NSNotification.Name(deleteCurrentUser), object: nil)
+            let mainSb = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let appVC = mainSb.instantiateViewController(identifier: "LoginViewController")
+            page.show(appVC, sender: self)
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { action2 in
+            page.navigationController?.popToViewController(page, animated: true)
+        }
+        alertVC.addAction(deleteButton)
+        alertVC.addAction(cancelButton)
+        page.present(alertVC, animated: true)
+    }
 }
 
 //MARK: - currency Converter, loader gibi yardımcı fonksiyonlar
@@ -75,5 +106,6 @@ class Helper: UIViewController {
             spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
+    
 
 }
