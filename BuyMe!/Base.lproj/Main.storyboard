@@ -865,7 +865,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="pg5-1p-6Mg">
-                                <rect key="frame" x="57" y="377" width="300" height="77.5"/>
+                                <rect key="frame" x="57" y="377" width="300" height="142"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9qx-p6-mGp">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
@@ -877,7 +877,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GUX-RK-qbJ">
-                                        <rect key="frame" x="0.0" y="43" width="300" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="43" width="300" height="99"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="XxN-5V-zR7"/>
                                         </constraints>
@@ -893,7 +893,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy Me!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRX-RF-rv3">
-                                <rect key="frame" x="20" y="64" width="374" height="37.5"/>
+                                <rect key="frame" x="20" y="64" width="374" height="102"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="zSb-M7-MIg"/>
                                 </constraints>
@@ -902,7 +902,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPv-7m-4Me">
-                                <rect key="frame" x="79.5" y="462" width="255" height="57"/>
+                                <rect key="frame" x="79.5" y="526.5" width="255" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="255" id="1o1-ta-BHv"/>
                                     <constraint firstAttribute="height" constant="57" id="owK-qM-Zpf"/>
@@ -919,7 +919,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNe-mK-4tC">
-                                <rect key="frame" x="79.5" y="527" width="255" height="57"/>
+                                <rect key="frame" x="79.5" y="591.5" width="255" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="255" id="15w-Gp-G8m"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="57" id="9b3-Hd-QO4"/>
@@ -938,7 +938,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7D3-CT-ll7">
-                                <rect key="frame" x="365" y="426" width="26" height="20"/>
+                                <rect key="frame" x="365" y="490.5" width="26" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="26" id="1lW-Iu-frR"/>
                                     <constraint firstAttribute="height" constant="20" id="hU3-Tw-ga6"/>
@@ -952,10 +952,10 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hv5-Ml-BFx">
-                                <rect key="frame" x="188.5" y="397.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGQ-HV-nhO">
-                                <rect key="frame" x="57" y="592" width="300" height="31"/>
+                                <rect key="frame" x="57" y="656.5" width="300" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="CRE-tx-h40"/>
                                     <constraint firstAttribute="width" constant="300" id="n3x-oX-FZk"/>
@@ -1040,7 +1040,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="rrM-4I-cCg">
-                                <rect key="frame" x="16" y="376" width="382" height="278.5"/>
+                                <rect key="frame" x="16" y="387" width="382" height="278.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5pt-aG-xtK">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34.5"/>
@@ -1049,6 +1049,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91J-aj-hDj">
                                         <rect key="frame" x="0.0" y="51.5" width="382" height="34"/>
@@ -1057,21 +1060,33 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="family-name"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Shipping Adress" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JGq-BO-9JA">
                                         <rect key="frame" x="0.0" y="102.5" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="street-address"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill Adress" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-Ef-RQB">
                                         <rect key="frame" x="0.0" y="153.5" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="street-address"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Z4-0w-2Bt">
                                         <rect key="frame" x="0.0" y="204.5" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="street-address"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6J9-uq-Scz">
                                         <rect key="frame" x="0.0" y="255.5" width="382" height="23"/>
@@ -1086,6 +1101,9 @@
                                                 <state key="normal" title="Delete Account">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="deleteAccount:" destination="mam-BS-5Ry" eventType="touchUpInside" id="dTP-qY-bXT"/>
                                                 </connections>
@@ -1097,6 +1115,9 @@
                                                 <state key="normal" title="Use same address with shipping">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="sameAddressButtonPressed:" destination="mam-BS-5Ry" eventType="touchUpInside" id="DWe-ij-4Iw"/>
                                                 </connections>
@@ -1109,7 +1130,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m9s-4d-laO">
-                                <rect key="frame" x="16" y="674.5" width="382" height="31"/>
+                                <rect key="frame" x="16" y="685.5" width="382" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruf-sl-BUA">
                                         <rect key="frame" x="0.0" y="0.0" width="181" height="31"/>
@@ -1120,6 +1141,9 @@
                                             </backgroundConfiguration>
                                             <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="emailChangeButtonPressed:" destination="mam-BS-5Ry" eventType="touchUpInside" id="zgf-lu-z42"/>
                                         </connections>
@@ -1133,26 +1157,17 @@
                                             </backgroundConfiguration>
                                             <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="passwordChangeButtonPressed:" destination="mam-BS-5Ry" eventType="touchUpInside" id="ybb-r0-0yc"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHC-39-wpg">
-                                <rect key="frame" x="72" y="98" width="270" height="270"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="67G-f7-M2G"/>
-                                    <constraint firstAttribute="height" constant="270" id="QNW-du-6wl"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="brain.head.profile" catalog="system"/>
-                                <connections>
-                                    <action selector="profileImageChangeButtonPressed:" destination="mam-BS-5Ry" eventType="touchUpInside" id="Rj2-8a-qc2"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nq9-du-Z89">
-                                <rect key="frame" x="94" y="713.5" width="226" height="31"/>
+                                <rect key="frame" x="94" y="724.5" width="226" height="31"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Edit Profile">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -1163,8 +1178,34 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="editProfileButtonPressed:" destination="mam-BS-5Ry" eventType="touchUpInside" id="jma-fF-8k8"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2jX-CP-8Sd">
+                                <rect key="frame" x="72" y="88" width="270" height="253"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="GYs-cx-Ehh"/>
+                                    <constraint firstAttribute="height" constant="253" id="R54-XV-Sex"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="253" id="vRK-Z0-VoF"/>
+                                    <constraint firstAttribute="width" constant="270" id="xfm-zg-Va5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHC-39-wpg">
+                                <rect key="frame" x="72" y="349" width="270" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Change Profile Image"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="profileImageChangeButtonPressed:" destination="mam-BS-5Ry" eventType="touchUpInside" id="Rj2-8a-qc2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1172,23 +1213,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rrM-4I-cCg" firstAttribute="centerX" secondItem="9DG-Ic-bK6" secondAttribute="centerX" id="9aI-1p-A2k"/>
-                            <constraint firstItem="FHC-39-wpg" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="72" id="Beh-fi-Lbq"/>
+                            <constraint firstItem="FHC-39-wpg" firstAttribute="top" secondItem="2jX-CP-8Sd" secondAttribute="bottom" constant="8" symbolic="YES" id="BT8-wk-Z8x"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="trailing" secondItem="Nq9-du-Z89" secondAttribute="trailing" constant="94" id="FxI-av-KJ0"/>
+                            <constraint firstItem="YAu-x1-oBS" firstAttribute="trailing" secondItem="FHC-39-wpg" secondAttribute="trailing" constant="72" id="IlE-xH-s7k"/>
                             <constraint firstItem="m9s-4d-laO" firstAttribute="top" secondItem="rrM-4I-cCg" secondAttribute="bottom" constant="20" id="Nok-Z5-NWq"/>
+                            <constraint firstItem="YAu-x1-oBS" firstAttribute="trailing" secondItem="2jX-CP-8Sd" secondAttribute="trailing" constant="72" id="OVv-gl-llw"/>
                             <constraint firstItem="m9s-4d-laO" firstAttribute="centerX" secondItem="9DG-Ic-bK6" secondAttribute="centerX" id="POc-cw-1us"/>
-                            <constraint firstItem="FHC-39-wpg" firstAttribute="top" secondItem="YAu-x1-oBS" secondAttribute="top" constant="10" id="TRM-cF-uKr"/>
+                            <constraint firstItem="rrM-4I-cCg" firstAttribute="top" secondItem="FHC-39-wpg" secondAttribute="bottom" constant="8" symbolic="YES" id="R49-W2-I8t"/>
                             <constraint firstItem="m9s-4d-laO" firstAttribute="top" secondItem="rrM-4I-cCg" secondAttribute="bottom" constant="20" id="UI4-Oc-z2O"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="trailing" secondItem="rrM-4I-cCg" secondAttribute="trailing" constant="16" id="X4U-MS-BOt"/>
-                            <constraint firstItem="rrM-4I-cCg" firstAttribute="top" secondItem="FHC-39-wpg" secondAttribute="bottom" constant="8" symbolic="YES" id="a4C-Co-8xD"/>
                             <constraint firstItem="rrM-4I-cCg" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="16" id="aaD-7N-j5A"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Nq9-du-Z89" secondAttribute="bottom" priority="999" constant="117" id="b5L-yg-W1a"/>
+                            <constraint firstItem="2jX-CP-8Sd" firstAttribute="top" secondItem="YAu-x1-oBS" secondAttribute="top" id="dvy-hA-fl1"/>
+                            <constraint firstItem="2jX-CP-8Sd" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="72" id="eMg-sc-D0K"/>
+                            <constraint firstItem="2jX-CP-8Sd" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="72" id="eck-8w-djD"/>
+                            <constraint firstItem="FHC-39-wpg" firstAttribute="top" secondItem="2jX-CP-8Sd" secondAttribute="bottom" constant="8" symbolic="YES" id="edt-QX-dko"/>
                             <constraint firstItem="Nq9-du-Z89" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="94" id="iqI-q2-nbH"/>
-                            <constraint firstItem="FHC-39-wpg" firstAttribute="centerX" secondItem="9DG-Ic-bK6" secondAttribute="centerX" id="qO3-Ej-6wM"/>
+                            <constraint firstItem="2jX-CP-8Sd" firstAttribute="top" secondItem="YAu-x1-oBS" secondAttribute="top" id="lA4-Jk-NwM"/>
                             <constraint firstItem="m9s-4d-laO" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="16" id="qSX-t8-OQe"/>
-                            <constraint firstItem="rrM-4I-cCg" firstAttribute="top" secondItem="FHC-39-wpg" secondAttribute="bottom" constant="8" symbolic="YES" id="rjY-OY-Lav"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="m9s-4d-laO" secondAttribute="bottom" priority="999" constant="156" id="sMq-i4-j6F"/>
                             <constraint firstItem="YAu-x1-oBS" firstAttribute="trailing" secondItem="m9s-4d-laO" secondAttribute="trailing" constant="16" id="tR6-8c-hHK"/>
                             <constraint firstItem="Nq9-du-Z89" firstAttribute="top" secondItem="m9s-4d-laO" secondAttribute="bottom" constant="8" id="uZS-aa-xQh"/>
+                            <constraint firstItem="FHC-39-wpg" firstAttribute="leading" secondItem="YAu-x1-oBS" secondAttribute="leading" constant="72" id="wmP-ej-3rQ"/>
+                            <constraint firstItem="YAu-x1-oBS" firstAttribute="trailing" secondItem="2jX-CP-8Sd" secondAttribute="trailing" constant="72" id="xvO-Rd-IMq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="C9z-tf-zPJ">
@@ -1203,7 +1250,7 @@
                         <outlet property="lastNameTextField" destination="91J-aj-hDj" id="8hj-Sq-lWe"/>
                         <outlet property="nameTextField" destination="5pt-aG-xtK" id="52g-Zv-HVU"/>
                         <outlet property="phoneTextField" destination="7Z4-0w-2Bt" id="80e-sm-ho3"/>
-                        <outlet property="profileImage" destination="FHC-39-wpg" id="8Ey-lS-7cX"/>
+                        <outlet property="profileImageView" destination="2jX-CP-8Sd" id="dnS-fl-09X"/>
                         <outlet property="shippingAdressTextField" destination="JGq-BO-9JA" id="GHL-7x-1zF"/>
                         <segue destination="U2I-Sj-Fml" kind="presentation" identifier="emailChange" id="Pak-CV-7oX"/>
                         <segue destination="cbM-kJ-pMS" kind="presentation" identifier="passwordChange" id="uY5-kw-JUU"/>
@@ -1324,7 +1371,6 @@
     </scenes>
     <resources>
         <image name="addToBasket" width="30" height="30"/>
-        <image name="brain.head.profile" catalog="system" width="114" height="128"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="eye" catalog="system" width="128" height="81"/>

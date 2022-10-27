@@ -139,6 +139,7 @@ class LoginViewController: UIViewController {
         user.password = passwordTextField.text!
         user.onBoard = false
         user.purchasedItemIds = []
+        user.profileImageLinks = []
         
         User().saveUserToFirestore(user)
     }

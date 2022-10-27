@@ -17,7 +17,7 @@ class User {
     var lastName: String = ""
     var password: String = ""
     var phoneNumber: String = ""
-    var profileImage: String = ""
+    var profileImageLinks: [String] = []
     
     var purchasedItemIds: [String] = []
     var fullAdress: String = ""
@@ -41,7 +41,7 @@ class User {
         onBoard = false
         purchasedItemIds = []
         phoneNumber = ""
-        profileImage = ""
+        profileImageLinks = []
         
     }
     
@@ -53,9 +53,9 @@ class User {
         
         
         if let image = _dictionary[keyUserImages] {
-            profileImage = image as! String
+            profileImageLinks = image as? [String] ?? []
         } else {
-            profileImage = ""
+            profileImageLinks = []
         }
         
         if let mail = _dictionary[keyUserEmail] {
@@ -116,6 +116,7 @@ class User {
                     //download user firebase
                     completion(error, true, userID ?? "")
                 } else {
+                    authDataResult!.user.sendEmailVerification()
                     
                     completion(error, false, "")
                 }
@@ -160,7 +161,7 @@ class User {
 
 extension User {
     func userDictionaryFrom(_ user: User) -> NSDictionary {
-        return NSDictionary(objects: [user.email, user.firstName, user.lastName, user.fullAdress, user.billAdress, user.objectID, user.purchasedItemIds, user.onBoard, user.password, user.phoneNumber, user.profileImage], forKeys: [keyUserEmail as NSCopying, keyUserName as NSCopying, keyUserLastName as NSCopying, keyUserAdress as NSCopying, keyUserBillAdress as NSCopying, keyUserPath as NSCopying, keyUserPurchased as NSCopying, keyUserOnBoard as NSCopying, keyUserPassword as NSCopying, keyUserPhone as NSCopying, keyUserImages as NSCopying])
+        return NSDictionary(objects: [user.email, user.firstName, user.lastName, user.fullAdress, user.billAdress, user.objectID, user.purchasedItemIds, user.onBoard, user.password, user.phoneNumber, user.profileImageLinks], forKeys: [keyUserEmail as NSCopying, keyUserName as NSCopying, keyUserLastName as NSCopying, keyUserAdress as NSCopying, keyUserBillAdress as NSCopying, keyUserPath as NSCopying, keyUserPurchased as NSCopying, keyUserOnBoard as NSCopying, keyUserPassword as NSCopying, keyUserPhone as NSCopying, keyUserImages as NSCopying])
     }
     
     func saveUserToFirestore(_ user: User) {
@@ -193,7 +194,7 @@ extension User {
         self.saveUserToFirestore(user)
     }
     
-    func updateUserInformations(userID: String, name: String, lastName: String, billAdress: String, shippingAdress: String, phone: String) {
+    func updateUserInformations(userID: String, name: String, lastName: String, billAdress: String, shippingAdress: String, phone: String, profileImage: [UIImage?]) {
         
         let user = User()
         
@@ -206,14 +207,16 @@ extension User {
         user.onBoard = true
         user.phoneNumber = phone
         
-        self.saveUserToFirestore(user)
-    }
-    func updateProfileImage(imageLink: String) {
-        
-        let user = User()
-        
-        user.profileImage = imageLink
-        self.saveUserToFirestore(user)
+        if profileImage.count > 0 {
+            
+            uploadImages(images: profileImage, imageFileName: "ProfileImages", itemID: userID) { (imageLinkArray) in
+                user.profileImageLinks = imageLinkArray
+                self.saveUserToFirestore(user)
+            }
+            
+        } else {
+            self.saveUserToFirestore(user)
+        }
     }
     
     func changePassword(newPassword: String, page: UIViewController) {

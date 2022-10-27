@@ -54,7 +54,7 @@ class ItemAddViewController: UIViewController {
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
         itemImages = []
-        showImageGallery()
+        showImageGalleryForItems()
     }
     
     @IBAction func backgroundTapped(_ sender: Any) { // keyboardu kapatabilmek için bunu kullanıyoruz.
@@ -93,7 +93,7 @@ class ItemAddViewController: UIViewController {
         
         if itemImages.count > 0 {
             
-            uploadImages(images: itemImages, itemID: item.id) { (imageLinkArray) in
+            uploadImages(images: itemImages, imageFileName: "ItemImages", itemID: item.id) { (imageLinkArray) in
                 item.imageLinks = imageLinkArray
                 
                 Items().saveItemsToFirestore(item)
@@ -125,7 +125,7 @@ class ItemAddViewController: UIViewController {
     }
     
 //MARK: - Show gallery
-    private func showImageGallery() {
+    private func showImageGalleryForItems() {
         
         self.gallery = GalleryController()
         self.gallery.delegate = self

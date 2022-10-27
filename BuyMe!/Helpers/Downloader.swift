@@ -10,7 +10,7 @@ import FirebaseStorage
 
 let storge = Storage.storage() // firebase storeage erişim imkanı sunduk.
 
-func uploadImages(images: [UIImage?], itemID: String, completion: @escaping (_ imageLinks: [String]) -> Void) { //save etmek istediğimiz imageların arrayini alacak, hangi iteme ait olduğu bilgisiyle berabe yükleyecek ve bize callback olarak bir imagelinkleri arrayi verecek
+func uploadImages(images: [UIImage?], imageFileName: String, itemID: String, completion: @escaping (_ imageLinks: [String]) -> Void) { //save etmek istediğimiz imageların arrayini alacak, hangi iteme ait olduğu bilgisiyle berabe yükleyecek ve bize callback olarak bir imagelinkleri arrayi verecek
     
     if Reachabilty.HasConnection(){ // eğer internet erişimi varsa
         
@@ -20,7 +20,7 @@ func uploadImages(images: [UIImage?], itemID: String, completion: @escaping (_ i
         
         for image in images {
             
-            let fileName = "ItemImages/" + itemID + "/" + "\(nameSuffix)" + ".jpg" //ekleyeceğimiz her bir fotoğrafa dosya ismi veriyoruz isim formatımız: ItemImages/91234D3264/0.jpg olacak böylece aynı item ID'ye sahip fotoğraflar üst üste yazılmayacak ve ayrı olarak gruplanabilecek
+            let fileName = imageFileName + "/" + itemID + "/" + "\(nameSuffix)" + ".jpg" //ekleyeceğimiz her bir fotoğrafa dosya ismi veriyoruz isim formatımız: ItemImages/91234D3264/0.jpg olacak böylece aynı item ID'ye sahip fotoğraflar üst üste yazılmayacak ve ayrı olarak gruplanabilecek
             let imageData = image!.jpegData(compressionQuality: 0.01) //imagelarımız PHAuth formatında bu format bizim için uygun değil bu yüzden storage yaparken sıkıştırmamız ve dönüştürmemiz gerekiyor.
             
             saveImageInFirebase(imageData: imageData!, fileName: fileName) { (imageLink) in
@@ -38,7 +38,7 @@ func uploadImages(images: [UIImage?], itemID: String, completion: @escaping (_ i
         
     } else {
         func Error(page: UIViewController) { // kullanıcıya bildirim çıkart ve bir önceki sayfaya gönder!
-            ErrorController.alert(alertInfo: AlertKey.connectionError, page: ItemsTableViewController())
+            ErrorController.alert(alertInfo: AlertKey.connectionError, page: page)
         }
     }
     
@@ -52,7 +52,8 @@ func uploadImages(images: [UIImage?], itemID: String, completion: @escaping (_ i
             task.removeAllObservers()
             
             if error != nil {
-                ErrorController.alert(alertInfo: AlertKey.somethingError , page: ItemsTableViewController())
+              //  ErrorController.alert(alertInfo: AlertKey.somethingError , page: ItemsTableViewController())
+                print("IMAGE SAVE ERROR: \(error)")
                 completion(nil)
                 return
             } else {
