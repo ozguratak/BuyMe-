@@ -80,7 +80,7 @@ class BasketViewController: UIViewController {
     
     //MARK: - Get Basket data
     func getBasket() { 
-        basket.downloadBasketFromFirebase(ownerID) { basket in
+        basket.downloadBasketFromFirebase(ownerID ?? "") { basket in
             if basket?.itemIDs.isEmpty == false{
                 
                 self.basketItemIDs.removeAll()

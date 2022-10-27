@@ -64,7 +64,7 @@ class ErrorController {
                                         preferredStyle: .alert)
        
         let deleteButton = UIAlertAction(title: "Delete", style: .default) { action in
-            NotificationCenter.default.post(name: NSNotification.Name(deleteCurrentUser), object: nil)
+            ProfileViewController().deleteUserInfo()
             let mainSb = UIStoryboard(name: "Main", bundle: Bundle.main)
             let appVC = mainSb.instantiateViewController(identifier: "LoginViewController")
             page.show(appVC, sender: self)

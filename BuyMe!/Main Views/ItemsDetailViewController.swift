@@ -68,7 +68,7 @@ class ItemsDetailViewController: UIViewController {
     
     @IBAction func addButonPressed(_ sender: Any) {
         
-        basket.downloadBasketFromFirebase(userID) { basket in
+        basket.downloadBasketFromFirebase(userID ?? "") { basket in
             if basket == nil {
                 self.newBasket()
             } else {

@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController {
         downloadCurrentUser()
        
         NotificationCenter.default.addObserver(self, selector: #selector(refresh) , name: Notification.Name(userLoggedIn), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(deleteUserInfo), name: Notification.Name(deleteCurrentUser), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(deleteUserInfo), name: Notification.Name(deleteCurrentUser), object: nil)
     }
     
     
@@ -122,25 +122,21 @@ class ProfileViewController: UIViewController {
     }
     
     
-    var users = [User()]
-    @objc func deleteUserInfo() {
-        
-        User().downloadUserFromFirestore { userArray in
-            for user in userArray {
-                self.users.append(user)
-            }
-            for i in 0..<self.users.count {
-                if users.contains(where: objectID[i]) {
-                    self.users.remove(at: i)
+
+    func deleteUserInfo() {
+        if let userID = userID {
+            firebaseReference(.User).document(userID).delete { error in
+                if let error = error {
+                    print("ERRO OLUŞTU!!!\(error)")
+                } else {
                     User().deleteUser()
-                    for newusers in self.users {
-                        User().createUserSet(id: newusers.objectID, mail: newusers.email)
-                    }
                     NotificationCenter.default.post(name: NSNotification.Name(logOutNotification), object: nil)
                 }
             }
-            
+        } else {
+            ErrorController.alert(alertInfo: "This account was not verified. So you cant delete this account. Please verify your account firstly!", page: self)
         }
+      
     }
 }
 

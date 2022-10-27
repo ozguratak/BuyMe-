@@ -130,7 +130,7 @@ class LoginViewController: UIViewController {
         
         let user = User()
         
-        user.objectID = userID
+        user.objectID = userID ?? ""
         user.firstName = "Your Name"
         user.lastName = "Your Lastname"
         user.fullAdress = "Your Shipping Adress"

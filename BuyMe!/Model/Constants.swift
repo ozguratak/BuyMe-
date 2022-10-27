@@ -33,7 +33,7 @@ public let itemUploadAdvice = "Maybe you can upload a new item for sale!"
 public let keyBasketID = "basketID"
 public let keyBasketOwnerID = "basketOwnerID"
 public let keyBasketItemIDs = "basketItemIDs"
-public var userID = ""
+public var userID: String? 
 
 //USer
 public let keyUserImages = "imageLink"
@@ -76,8 +76,8 @@ public let logOutNotification = "logOutDone"
 public let userLoggedIn = "knowingUserLoggedIn"
 
 public var currentEmail = ""
-public let deleteCurrentUser = "deleteCurrentUser"
-public let deletingComplete = "deletingComplete"
+//public let deleteCurrentUser = "deleteCurrentUser"
+//public let userInfoDeleted = "deletingComplete"
 
 
 //Alert Strings and Keys

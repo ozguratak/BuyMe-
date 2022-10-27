@@ -114,7 +114,7 @@ class User {
                 if authDataResult!.user.isEmailVerified {
                     userID = Auth.auth().currentUser!.uid
                     //download user firebase
-                    completion(error, true, userID)
+                    completion(error, true, userID ?? "")
                 } else {
                     
                     completion(error, false, "")
@@ -223,7 +223,7 @@ extension User {
             if error != nil {
                 ErrorController.alert(alertInfo: "An error occured while changing the password!", page: page)
             } else {
-                user.objectID = userID
+                user.objectID = userID ?? ""
                 user.password = newPassword
                 self.saveUserToFirestore(user)
                 
@@ -238,7 +238,7 @@ extension User {
             if error != nil {
                 ErrorController.alert(alertInfo: "An error occurred while changing the email", page: page)
             } else {
-                user.objectID = userID
+                user.objectID = userID ?? ""
                 user.email = newMail
                 self.saveUserToFirestore(user)
             }
@@ -259,3 +259,4 @@ extension User {
         user?.delete()
     }
 }
+
