@@ -60,12 +60,21 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var billAdressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var imageChangeButton: UIButton!
+    @IBOutlet weak var editProfileButton: UIButton!
+    
+    @IBOutlet weak var emailChangeButton: UIButton!
+    @IBOutlet weak var passwordChangeButton: UIButton!
+    @IBOutlet weak var deleteAccountButton: UIButton!
+    @IBOutlet weak var sameAdressButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         downloadCurrentUser()
+        skeletonStart()
         
+       
     
         
         NotificationCenter.default.addObserver(self, selector: #selector(refresh) , name: Notification.Name(userLoggedIn), object: nil)
@@ -122,6 +131,7 @@ class ProfileViewController: UIViewController {
             
             if profileImages.count > 0 {
                 profileImageView.image = profileImages[0]
+                skeletonStop()
             } else {
                 profileImageView.image = UIImage(named: "placeHolder")
             }
@@ -210,6 +220,42 @@ extension ProfileViewController: GalleryControllerDelegate { // Galeriye eklenmi
     }
     
     
+}
+extension ProfileViewController {
+    
+    
+    
+    private func skeletonStart() {
+        Skeleton.startAnimation(outlet: profileImageView)
+        Skeleton.startAnimation(outlet: nameTextField)
+        Skeleton.startAnimation(outlet: lastNameTextField)
+        Skeleton.startAnimation(outlet: billAdressTextField)
+        Skeleton.startAnimation(outlet: shippingAdressTextField)
+        Skeleton.startAnimation(outlet: phoneTextField)
+    
+        Skeleton.startAnimation(outlet: sameAdressButton)
+        Skeleton.startAnimation(outlet: editProfileButton)
+        Skeleton.startAnimation(outlet: emailChangeButton)
+        Skeleton.startAnimation(outlet: imageChangeButton)
+        Skeleton.startAnimation(outlet: deleteAccountButton)
+        Skeleton.startAnimation(outlet: passwordChangeButton)
+        
+    }
+    
+    private func skeletonStop() {
+        Skeleton.stopAnimaton(outlet: profileImageView)
+        Skeleton.stopAnimaton(outlet: nameTextField)
+        Skeleton.stopAnimaton(outlet: lastNameTextField)
+        Skeleton.stopAnimaton(outlet: billAdressTextField)
+        Skeleton.stopAnimaton(outlet: shippingAdressTextField)
+        Skeleton.stopAnimaton(outlet: phoneTextField)
+        Skeleton.stopAnimaton(outlet: sameAdressButton)
+        Skeleton.stopAnimaton(outlet: editProfileButton)
+        Skeleton.stopAnimaton(outlet: emailChangeButton)
+        Skeleton.stopAnimaton(outlet: imageChangeButton)
+        Skeleton.stopAnimaton(outlet: deleteAccountButton)
+        Skeleton.stopAnimaton(outlet: passwordChangeButton)
+    }
 }
 
 
