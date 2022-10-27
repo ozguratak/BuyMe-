@@ -81,7 +81,8 @@ class BasketViewController: UIViewController {
     
     
     //MARK: - Get Basket data
-    func getBasket() { 
+    func getBasket() {
+        
         basket.downloadBasketFromFirebase(ownerID ?? "") { basket in
             if basket?.itemIDs.isEmpty == false{
                 
@@ -91,28 +92,27 @@ class BasketViewController: UIViewController {
                 self.defaultBasket = basket!
                 print("basket indirildi içinde \(self.basketItemIDs.count) adet item var")
                 self.setItemsInBasket()
+               
             } else {
-                self.basketEmptyState()
+                
             }
         }
         
     }
     
     private func basketEmptyState() {
-        if basketItems.count == 0 {
-            totalAmount.isHidden = true
-            itemTableView.isHidden = true
-            refreshControlIndicator.isHidden = true
-            emptyBasketView.isHidden = false
-            emptyBasketLabel.isHidden = false
-            checkoutButtonStatusUpdate()
-        } else {
+        if basketItems.count != 0 {
             totalAmount.isHidden = false
             itemTableView.isHidden = false
-            refreshControlIndicator.isHidden = false
             emptyBasketView.isHidden = true
             emptyBasketLabel.isHidden = true
-            checkoutButtonStatusUpdate()
+            
+        } else {
+            
+            totalAmount.isHidden = true
+            itemTableView.isHidden = true
+            emptyBasketView.isHidden = false
+            emptyBasketLabel.isHidden = false
         }
         
     }
@@ -140,6 +140,7 @@ class BasketViewController: UIViewController {
                 basketItemIDs.remove(at: i)
                 updateBasket(basket: defaultBasket, withValues: [keyBasketItemIDs : basketItemIDs])
                 refresh()
+                self.basketEmptyState()
                 return
             }
         }
@@ -183,15 +184,17 @@ class BasketViewController: UIViewController {
     //MARK: - Checout button controls
     private func checkoutButtonStatusUpdate() {
         
+        
         if self.basketItems.count != 0 {
             checkButtonOutlet.isEnabled = true
             checkButtonOutlet.backgroundColor = UIColor.systemGreen
             checkButtonOutlet.setTitleColor(.white, for: .normal)
         } else {
             checkButtonOutlet.isEnabled = false
-            checkButtonOutlet.backgroundColor = UIColor.systemGray
+            checkButtonOutlet.backgroundColor = UIColor.systemRed
             checkButtonOutlet.setTitleColor(UIColor.black , for: .normal)
         }
+        self.basketEmptyState()
     }
     
     //MARK: - Navigation Center call activity
