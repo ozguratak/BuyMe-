@@ -188,6 +188,24 @@
                                     <constraint firstAttribute="height" constant="20" id="dB5-dT-Lpx"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tya-LN-Gqa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your basket is empty as space! Plase add some items in your basket." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HW6-eS-rxp">
+                                        <rect key="frame" x="50" y="288.5" width="314" height="90"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="HW6-eS-rxp" firstAttribute="leading" secondItem="tya-LN-Gqa" secondAttribute="leading" constant="50" id="6M5-dI-t6g"/>
+                                    <constraint firstItem="HW6-eS-rxp" firstAttribute="centerX" secondItem="tya-LN-Gqa" secondAttribute="centerX" id="OqH-Cw-XFs"/>
+                                    <constraint firstAttribute="trailing" secondItem="HW6-eS-rxp" secondAttribute="trailing" constant="50" id="qOR-Am-TxX"/>
+                                    <constraint firstItem="HW6-eS-rxp" firstAttribute="centerY" secondItem="tya-LN-Gqa" secondAttribute="centerY" id="vgu-ST-aVY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w8N-Q9-kdr"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -196,25 +214,31 @@
                             <constraint firstItem="YZp-Qu-uNs" firstAttribute="top" secondItem="TtD-yE-wr5" secondAttribute="bottom" constant="2.5" id="3vI-jE-VVT"/>
                             <constraint firstItem="kgr-2E-9HX" firstAttribute="leading" secondItem="TtD-yE-wr5" secondAttribute="trailing" constant="8" symbolic="YES" id="5Y8-Ga-1WN"/>
                             <constraint firstItem="Lxg-dY-Rir" firstAttribute="top" secondItem="YZp-Qu-uNs" secondAttribute="bottom" constant="8" symbolic="YES" id="6wi-pM-oVH"/>
+                            <constraint firstItem="Lxg-dY-Rir" firstAttribute="top" secondItem="tya-LN-Gqa" secondAttribute="bottom" constant="7.5" id="Htr-Do-RW9"/>
                             <constraint firstItem="Lxg-dY-Rir" firstAttribute="top" secondItem="YZp-Qu-uNs" secondAttribute="bottom" constant="8" symbolic="YES" id="KR2-fw-7M7"/>
                             <constraint firstItem="TtD-yE-wr5" firstAttribute="top" secondItem="w8N-Q9-kdr" secondAttribute="top" id="Otc-Ws-nwv"/>
                             <constraint firstItem="YZp-Qu-uNs" firstAttribute="top" secondItem="kgr-2E-9HX" secondAttribute="bottom" constant="2.5" id="Ovv-2h-q3u"/>
                             <constraint firstItem="w8N-Q9-kdr" firstAttribute="trailing" secondItem="YZp-Qu-uNs" secondAttribute="trailing" id="PG3-4V-s3u"/>
                             <constraint firstItem="YZp-Qu-uNs" firstAttribute="centerX" secondItem="tzj-Hg-jWq" secondAttribute="centerX" id="TfY-9E-Yeq"/>
                             <constraint firstItem="kgr-2E-9HX" firstAttribute="leading" secondItem="TtD-yE-wr5" secondAttribute="trailing" constant="8" symbolic="YES" id="XKd-ck-5ua"/>
+                            <constraint firstItem="tya-LN-Gqa" firstAttribute="trailing" secondItem="w8N-Q9-kdr" secondAttribute="trailing" id="dTS-uk-KgA"/>
                             <constraint firstItem="39c-TF-Fn1" firstAttribute="centerX" secondItem="tzj-Hg-jWq" secondAttribute="centerX" id="eJL-rD-UH2"/>
                             <constraint firstItem="Lxg-dY-Rir" firstAttribute="bottom" secondItem="w8N-Q9-kdr" secondAttribute="bottom" id="gOk-tw-wPb"/>
                             <constraint firstItem="TtD-yE-wr5" firstAttribute="leading" secondItem="w8N-Q9-kdr" secondAttribute="leading" constant="20" id="gSv-1E-K9m"/>
                             <constraint firstItem="Lxg-dY-Rir" firstAttribute="centerX" secondItem="tzj-Hg-jWq" secondAttribute="centerX" id="h2T-dV-O0s"/>
                             <constraint firstItem="39c-TF-Fn1" firstAttribute="centerY" secondItem="tzj-Hg-jWq" secondAttribute="centerY" id="oW4-dB-9vx"/>
+                            <constraint firstItem="tya-LN-Gqa" firstAttribute="top" secondItem="w8N-Q9-kdr" secondAttribute="top" id="ovV-no-3Fd"/>
                             <constraint firstItem="kgr-2E-9HX" firstAttribute="top" secondItem="w8N-Q9-kdr" secondAttribute="top" id="sJy-z1-7e2"/>
                             <constraint firstItem="YZp-Qu-uNs" firstAttribute="leading" secondItem="w8N-Q9-kdr" secondAttribute="leading" id="tE0-v0-9to"/>
                             <constraint firstItem="Lxg-dY-Rir" firstAttribute="leading" secondItem="w8N-Q9-kdr" secondAttribute="leading" constant="20" id="tEU-LB-fMs"/>
+                            <constraint firstItem="tya-LN-Gqa" firstAttribute="leading" secondItem="w8N-Q9-kdr" secondAttribute="leading" id="ypt-Vh-DOU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Basket" id="f5x-ik-ila"/>
                     <connections>
                         <outlet property="checkButtonOutlet" destination="Lxg-dY-Rir" id="iCn-OM-1jB"/>
+                        <outlet property="emptyBasketLabel" destination="HW6-eS-rxp" id="cZk-hJ-vIe"/>
+                        <outlet property="emptyBasketView" destination="tya-LN-Gqa" id="hUH-op-utG"/>
                         <outlet property="itemTableView" destination="YZp-Qu-uNs" id="IE3-ql-qkn"/>
                         <outlet property="refreshControlIndicator" destination="39c-TF-Fn1" id="69q-ou-2dx"/>
                         <outlet property="totalAmount" destination="kgr-2E-9HX" id="V7X-yH-551"/>

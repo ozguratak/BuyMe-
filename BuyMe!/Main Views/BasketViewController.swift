@@ -11,6 +11,8 @@ import Foundation
 class BasketViewController: UIViewController {
     //MARK: Singletons
     var basket = Basket.shared
+    @IBOutlet weak var emptyBasketView: UIView!
+    @IBOutlet weak var emptyBasketLabel: UILabel!
     
     
     //MARK: IBOutlets
@@ -90,8 +92,27 @@ class BasketViewController: UIViewController {
                 print("basket indirildi içinde \(self.basketItemIDs.count) adet item var")
                 self.setItemsInBasket()
             } else {
-                ErrorController.alert(alertInfo: "Is there are space? add something to basket!", page: self)
+                self.basketEmptyState()
             }
+        }
+        
+    }
+    
+    private func basketEmptyState() {
+        if basketItems.count == 0 {
+            totalAmount.isHidden = true
+            itemTableView.isHidden = true
+            refreshControlIndicator.isHidden = true
+            emptyBasketView.isHidden = false
+            emptyBasketLabel.isHidden = false
+            checkoutButtonStatusUpdate()
+        } else {
+            totalAmount.isHidden = false
+            itemTableView.isHidden = false
+            refreshControlIndicator.isHidden = false
+            emptyBasketView.isHidden = true
+            emptyBasketLabel.isHidden = true
+            checkoutButtonStatusUpdate()
         }
         
     }
