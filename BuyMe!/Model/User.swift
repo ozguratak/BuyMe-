@@ -193,6 +193,9 @@ extension User {
         let user = User(_objectId: id, _eMail: mail)
         self.saveUserToFirestore(user)
     }
+    func purchasedItemsUpdate(userID: String) {
+        
+    }
     
     func updateUserInformations(userID: String, name: String, lastName: String, billAdress: String, shippingAdress: String, phone: String, profileImage: [UIImage?]) {
         

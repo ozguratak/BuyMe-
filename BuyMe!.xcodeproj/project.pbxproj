@@ -15,6 +15,7 @@
 		6F377ADC2901A8FC00140B73 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F377ADB2901A8FC00140B73 /* SigninViewController.swift */; };
 		6F377ADE29028AA000140B73 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F377ADD29028AA000140B73 /* User.swift */; };
 		6F377AE029067C4700140B73 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F377ADF29067C4700140B73 /* ProfileViewController.swift */; };
+		6F5E6CE8290BE1D0001FD224 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E6CE7290BE1D0001FD224 /* SearchViewController.swift */; };
 		6F6CCD2128ED7AE400827B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6CCD2028ED7AE400827B29 /* AppDelegate.swift */; };
 		6F6CCD2328ED7AE400827B29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6CCD2228ED7AE400827B29 /* SceneDelegate.swift */; };
 		6F6CCD2828ED7AE400827B29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F6CCD2628ED7AE400827B29 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		6F377ADB2901A8FC00140B73 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		6F377ADD29028AA000140B73 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6F377ADF29067C4700140B73 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6F5E6CE7290BE1D0001FD224 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		6F6CCD1D28ED7AE400827B29 /* BuyMe!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BuyMe!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F6CCD2028ED7AE400827B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F6CCD2228ED7AE400827B29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6F294898290AD0140000CBA6 /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AdMob;
+			sourceTree = "<group>";
+		};
 		6F6CCD1428ED7AE400827B29 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +132,7 @@
 				6F7E6A0928ED9CB2001C01A5 /* Main Views */,
 				6F7E6A0A28ED9CC0001C01A5 /* Custom Cells */,
 				6F7E6A0D28ED9D02001C01A5 /* Model */,
+				6F294898290AD0140000CBA6 /* AdMob */,
 				6F7E6A0828ED9C9B001C01A5 /* Helpers */,
 				6F6CCD2228ED7AE400827B29 /* SceneDelegate.swift */,
 				6F6CCD2628ED7AE400827B29 /* Main.storyboard */,
@@ -159,6 +169,7 @@
 				6F377ADF29067C4700140B73 /* ProfileViewController.swift */,
 				6F29489229087EA20000CBA6 /* PasswordChangeViewController.swift */,
 				6F29489429087EC10000CBA6 /* MailChangeViewController.swift */,
+				6F5E6CE7290BE1D0001FD224 /* SearchViewController.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -314,6 +325,7 @@
 				6F377ADA29018CB300140B73 /* LoginViewController.swift in Sources */,
 				6FAE101028F9465600769082 /* BasketViewController.swift in Sources */,
 				6F377ADC2901A8FC00140B73 /* SigninViewController.swift in Sources */,
+				6F5E6CE8290BE1D0001FD224 /* SearchViewController.swift in Sources */,
 				6F7E6A0328ED95ED001C01A5 /* CategoryCollectionViewCell.swift in Sources */,
 				6F7E6A1B28F03A24001C01A5 /* Helper Funcitons.swift in Sources */,
 				6FFC7C0428F5A9AB002F8D1B /* ImageCollectionViewCell.swift in Sources */,
