@@ -34,19 +34,16 @@ class ItemAddViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    private func notificationController() {
-        NotificationCenter.default.post(name: NSNotification.Name(itemAddToCategory), object: nil)
-        print("Item basketlendi!")
-    }
     
  //MARK: -IBActions
     
     @IBAction func doneButtonPressed(_ sender: Any) {
-        notificationController()
+ 
         dismissKeyboard()
         
         if checkFieldsAreCompleted() {
             saveItems()
+            NotificationCenter.default.post(name: NSNotification.Name(itemAddToCategory), object: nil)
         } else {
             ErrorController.alert(alertInfo: AlertKey.fillMessage, page: self)
         }
@@ -88,7 +85,7 @@ class ItemAddViewController: UIViewController {
         item.id = UUID().uuidString
         item.name = titleLabel.text!
         item.categoryID = category.id
-        item.description = descriptionTextView.text!
+        item.description = Helper.characterCheck(text: descriptionTextView.text!) 
         item.price = Double(priceTextField.text!) ?? 0.0
         
         if itemImages.count > 0 {

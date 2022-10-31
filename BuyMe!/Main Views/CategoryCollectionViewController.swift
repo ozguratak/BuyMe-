@@ -88,7 +88,7 @@ extension CategoryCollectionViewController { // Kategori celli seçildiğinde il
         if segue.identifier == itemSegue {
             
             let VC = segue.destination as! ItemsTableViewController
-            VC.category = sender as! Category
+            VC.category = sender as? Category
             VC.ownerID = ownerID
         }
             

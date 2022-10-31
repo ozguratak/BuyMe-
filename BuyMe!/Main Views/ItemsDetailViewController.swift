@@ -92,7 +92,7 @@ class ItemsDetailViewController: UIViewController {
     private func updateBasket(basket: Basket, withValues: [String : Any]) {
         basket.updateBasket(basket: basket, withValues: withValues, completion: { error in
             if error != nil {
-                ErrorController.alert(alertInfo: "Error: \(error)", page: self)
+                ErrorController.alert(alertInfo: "Error: \(String(describing: error))", page: self)
             } else {
                 ErrorController.alert(alertInfo: "Item succesfully added to basket!", page: self)
             }

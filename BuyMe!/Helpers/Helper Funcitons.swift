@@ -106,6 +106,15 @@ class Helper: UIViewController {
             spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
-    
+    //MARK: - text ascii correction method
+  static func characterCheck(text: String) -> String { // ascii-7 olmayan karakterlerin düzeltilmesi
+        var correctedText: String = ""
+        for ch in text {
+            if ch.isASCII == true {
+                correctedText += ch.description.lowercased()
+            } //ascii olmaması durumunda convert etmek ve eklemek gerekiyor.
+        }
+        return correctedText
+    }
 
 }

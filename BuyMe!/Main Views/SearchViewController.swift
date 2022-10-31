@@ -47,10 +47,10 @@ class SearchViewController: UIViewController {
     private func searchResult() {
         
         if searchBar.text != nil {
-            searchText = characterCheck(text: searchBar.text!)
+            searchText = Helper.characterCheck(text: searchBar.text!)
             
             for item in allItems {
-                if characterCheck(text: item.description) == searchText {
+                if Helper.characterCheck(text: item.description) == searchText {
                     self.searchResultItems.append(item)
                 }
             }
@@ -60,27 +60,25 @@ class SearchViewController: UIViewController {
     }
     
     //MARK: - Helpers and Page content control
-    func characterCheck(text: String) -> String { // ascii-7 olmayan karakterlerin düzeltilmesi
-        var correctedText: String = ""
-        for ch in text {
-            if ch.isASCII == true {
-                correctedText += ch.description.lowercased()
-            } //ascii olmaması durumunda convert etmek ve eklemek gerekiyor.
-        }
-        return correctedText
-    }
+ 
     
     private func pageContentController() {
         
-        if searchResultItems.isEmpty { 
+        
+        if searchResultItems.isEmpty && searchText == nil {
             emptyView.isHidden = false
             informationLabel.isHidden = false
-            searchBar.isHidden = true
             searchResultTableView.isHidden = true
+            
+        } else if searchResultItems.isEmpty && searchText != nil {
+            emptyView.isHidden = false
+            informationLabel.isHidden = false
+            informationLabel.text = "We can't find anything about ( \(String(describing: searchText!)) ). Please search another words."
+            searchResultTableView.isHidden = false
+            
         } else {
             emptyView.isHidden = true
             informationLabel.isHidden = true
-            searchBar.isHidden = false
             searchResultTableView.isHidden = false
         }
     }
@@ -137,6 +135,7 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.text = ""
         searchBar.endEditing(true)
         searchBar.showsCancelButton = false
+        pageContentController()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

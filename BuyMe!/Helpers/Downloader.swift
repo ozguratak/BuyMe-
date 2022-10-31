@@ -53,7 +53,7 @@ func uploadImages(images: [UIImage?], imageFileName: String, itemID: String, com
             
             if error != nil {
               //  ErrorController.alert(alertInfo: AlertKey.somethingError , page: ItemsTableViewController())
-                print("IMAGE SAVE ERROR: \(error)")
+                print("IMAGE SAVE ERROR: \(String(describing: error))")
                 completion(nil)
                 return
             } else {
