@@ -16,6 +16,7 @@ enum FCollectionReference: String{
     case Category
     case Items
     case Basket
+    case Order
 }
 //MARK: Yaratılan bu fonksiyonun görevi JSON formatında gelen verinin hızlı bir şekilde okunabilmesi ve bu verinin ilgili case'ine göre çağrılıp get veya set edilebilmesini kolaylaştırmaktır. 
 func firebaseReference(_ collectionReference: FCollectionReference) -> CollectionReference {

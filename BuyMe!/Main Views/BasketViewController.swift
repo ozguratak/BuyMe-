@@ -24,7 +24,23 @@ class BasketViewController: UIViewController {
     
     //MARK: IBActions
     @IBAction func checkoutButtonPressed(_ sender: Any) {
+        firebaseReference(.User).whereField(userID!, isEqualTo: keyUserPurchased).getDocuments { snapShot, error in
+            if let error = error {
+                print("snapshot indirirken bişeyler oldu: \(String(describing: error))")
+            }
+            if let snapShot = snapShot {
+                let document = snapShot.documents.first
+                for item in self.basketItemIDs {
+                    document?.setValue(item, forKey: keyUserPurchased)
+                }
+                self.goToPaymentPage()
+            } else {
+                print("snapshot dönmedi snapshot nil")
+            }
+        }
     }
+    
+    
     var item: Items!
     var defaultBasket: Basket!
     var basketItems: [Items] = []
@@ -33,7 +49,7 @@ class BasketViewController: UIViewController {
     
     var pieceCounter: [String : Int] = [:]
     //MARK: - Refresh Control
-    private let refreshControl = UIRefreshControl() 
+    private let refreshControl = UIRefreshControl()
     //MARK: temporary variables
     let ownerID = userID // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
     
@@ -72,10 +88,15 @@ class BasketViewController: UIViewController {
         refreshControl.endRefreshing()
         
     }
+    private func goToPaymentPage() {
+        let mainSb = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let appVC = mainSb.instantiateViewController(identifier: "PaymentViewController")
+        show(appVC, sender: self)
+    }
     //MARK: - Check user account
     func checkAccount() {
         if ownerID == "" {
-            ErrorController.goBack(alertInfo: "Your account has not verified. Please verify your e-mail and contunie to shopping.", showPage: self, goPage: CategoryCollectionViewController()) 
+            ErrorController.goBack(alertInfo: "Your account has not verified. Please verify your e-mail and contunie to shopping.", showPage: self, goPage: CategoryCollectionViewController())
         }
     }
     
@@ -92,7 +113,7 @@ class BasketViewController: UIViewController {
                 self.defaultBasket = basket!
                 print("basket indirildi içinde \(self.basketItemIDs.count) adet item var")
                 self.setItemsInBasket()
-               
+                
             } else {
                 
             }
@@ -250,7 +271,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
                 itemsTableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
-       
+        
     }
     
     // MARK: - Navigation

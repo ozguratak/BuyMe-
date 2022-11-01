@@ -49,6 +49,14 @@ public let keyUserPurchased = "purchasedItems"
 public let keyUserPassword = "password"
 public let keyUserBillAdress = "billAdress"
 
+//Orders
+public let keyOrderID = "orderID"
+public let keyOrderOwnerName = "order owner's name"
+public let keyOrderAdress = "adress for shipping"
+public let keyOrderBillAdress = "adress for bill"
+public let keyOrderPhone = "phone number for order's owner"
+public let keyOrderItems = "order item list"
+
 //Cell Keys
 public let cellIdentifier = "Cell"
 public let itemCell = "TableCell"
@@ -76,6 +84,8 @@ public let logOutNotification = "logOutDone"
 public let userLoggedIn = "knowingUserLoggedIn"
 
 public var currentEmail = ""
+
+public let checkoutButton = "checkOut"
 
 
 //Alert Strings and Keys

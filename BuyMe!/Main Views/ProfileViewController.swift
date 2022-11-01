@@ -25,10 +25,9 @@ class ProfileViewController: UIViewController {
         if profileImages.count > 0 {
             profileImages.removeAll()
             showImageGalleryForProfile()
-            
+            downloadPictures()
         } else {
             showImageGalleryForProfile()
-          
         }
     }
     
@@ -74,21 +73,20 @@ class ProfileViewController: UIViewController {
         downloadCurrentUser()
         skeletonStart()
         
-       
-    
-        
         NotificationCenter.default.addObserver(self, selector: #selector(refresh) , name: Notification.Name(userLoggedIn), object: nil)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         
     }
-    
     
     @objc func refresh() {
         presentedViewController?.reloadInputViews()
     }
     
-    
+    @objc func updateUserForPurchasedItems() {
+        self.updateUserInformations()
+    }
     
     func downloadCurrentUser() {
         User().downloadUserFromFirestore { userArray in
@@ -97,8 +95,6 @@ class ProfileViewController: UIViewController {
                     if user.email == currentEmail {
                         self.currentUser = user
                         self.downloadPictures()
-                        
-                    
                         return
                     }
                 }
@@ -114,15 +110,18 @@ class ProfileViewController: UIViewController {
                 if images.count > 0 {
                     self.profileImages = images as! [UIImage]
                     self.setupUI()
+                    return
                 }
             }
+        } else {
+            setupUI()
         }
+        setupUI()
     }
     
     private func setupUI() {
         
         if currentUser?.onBoard == true {
-            
             nameTextField.placeholder = currentUser?.firstName
             lastNameTextField.placeholder = currentUser?.lastName
             phoneTextField.placeholder = currentUser?.phoneNumber
@@ -134,6 +133,7 @@ class ProfileViewController: UIViewController {
                 skeletonStop()
             } else {
                 profileImageView.image = UIImage(named: "placeHolder")
+                skeletonStop()
             }
             
         } else {
@@ -142,8 +142,9 @@ class ProfileViewController: UIViewController {
             phoneTextField.placeholder = "Phone Number"
             shippingAdressTextField.placeholder = "Shipping Adress"
             billAdressTextField.placeholder = "Bill Adress"
+            profileImageView.image = UIImage(named: "placeHolder")
+            skeletonStop()
         }
-       
     }
     
     private func updateUserInformations() {
@@ -158,7 +159,6 @@ class ProfileViewController: UIViewController {
     }
     
     private func message(message: String, title: String, action: Bool, completion: @escaping (_ action: UIAlertController) -> Void) {
-        
         let notificationVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         if action {
             self.present(notificationVC, animated: true)
@@ -222,9 +222,6 @@ extension ProfileViewController: GalleryControllerDelegate { // Galeriye eklenmi
     
 }
 extension ProfileViewController {
-    
-    
-    
     private func skeletonStart() {
         Skeleton.startAnimation(outlet: profileImageView)
         Skeleton.startAnimation(outlet: nameTextField)
@@ -239,7 +236,6 @@ extension ProfileViewController {
         Skeleton.startAnimation(outlet: imageChangeButton)
         Skeleton.startAnimation(outlet: deleteAccountButton)
         Skeleton.startAnimation(outlet: passwordChangeButton)
-        
     }
     
     private func skeletonStop() {
@@ -249,6 +245,7 @@ extension ProfileViewController {
         Skeleton.stopAnimaton(outlet: billAdressTextField)
         Skeleton.stopAnimaton(outlet: shippingAdressTextField)
         Skeleton.stopAnimaton(outlet: phoneTextField)
+        
         Skeleton.stopAnimaton(outlet: sameAdressButton)
         Skeleton.stopAnimaton(outlet: editProfileButton)
         Skeleton.stopAnimaton(outlet: emailChangeButton)

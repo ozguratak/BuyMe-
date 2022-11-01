@@ -188,13 +188,9 @@ extension User {
         }
     }
     
-    
     func createUserSet(id: String, mail: String) {
         let user = User(_objectId: id, _eMail: mail)
         self.saveUserToFirestore(user)
-    }
-    func purchasedItemsUpdate(userID: String) {
-        
     }
     
     func updateUserInformations(userID: String, name: String, lastName: String, billAdress: String, shippingAdress: String, phone: String, profileImage: [UIImage?]) {
@@ -209,6 +205,8 @@ extension User {
         user.billAdress = billAdress
         user.onBoard = true
         user.phoneNumber = phone
+        user.purchasedItemIds = [""]
+        
         
         if profileImage.count > 0 {
             
@@ -220,6 +218,8 @@ extension User {
         } else {
             self.saveUserToFirestore(user)
         }
+        
+        
     }
     
     func changePassword(newPassword: String, page: UIViewController) {
