@@ -80,16 +80,15 @@ class BasketViewController: UIViewController {
         Skeleton.startAnimation(outlet: itemTableView.self)
         getBasket()
         
-      
     }
     
     private func stopRefresh() {
-        
         refreshControlIndicator.stopAnimating()
         Skeleton.stopAnimaton(outlet: itemTableView.self)
         refreshControlIndicator.isHidden = true
         refreshControl.endRefreshing()
         itemTableView.reloadData()
+        basketEmptyState()
         
     }
     private func goToPaymentPage() {
@@ -125,17 +124,13 @@ class BasketViewController: UIViewController {
                 self.basketItems.removeAll()
                 self.basketItemIDs = (basket?.itemIDs)!
                 self.defaultBasket = basket!
-                print("basket indirildi içinde \(self.basketItemIDs.count) adet item var")
                 self.setItemsInBasket()
-                
             } else {
                 self.basketItemIDs.removeAll()
                 self.basketItems.removeAll()
-                self.stopRefresh()
                 self.basketEmptyState()
             }
         }
-        
     }
     
     private func basketEmptyState() {
@@ -238,9 +233,6 @@ class BasketViewController: UIViewController {
     //MARK: - Navigation Center call activity
     @objc func navigationCenterActivity() {
         refresh()
-        if basketItems.isEmpty {
-            stopRefresh()
-        }
     }
 }
 
