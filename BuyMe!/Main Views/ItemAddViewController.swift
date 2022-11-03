@@ -16,7 +16,8 @@ class ItemAddViewController: UIViewController {
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
-//Singleton
+    @IBOutlet weak var stockOfItem: UITextField!
+    //Singleton
     var items = Items.shared
     //MARK: - Variables
     var category: Category! // Force edilmiş bir category değişkeni tanımlıyoruz bunu yapmamızın sebebi eklenecek olan item bir kategoriye ait olmak zorunda. kategorilendirilmemiş olan bir item DB içinde kaybolacak ve alakasız durumlarda karşımıza çıkacaktır. Bu değişkenin görevi kullanıcıdan alınamayacak olan ve backgroundda halletmemiz gereken iteme ait kategori numarasının paslanabilmesidir.
@@ -66,7 +67,8 @@ class ItemAddViewController: UIViewController {
     }
     
     private func checkFieldsAreCompleted() -> Bool {
-        return (titleLabel.text != "" && priceTextField.text != "" && descriptionTextView.text != "" )
+        return (titleLabel.text != "" && priceTextField.text != "" && descriptionTextView.text != "" &&
+                stockOfItem.text != "")
     }
     
     private func popTheView() {
@@ -87,6 +89,7 @@ class ItemAddViewController: UIViewController {
         item.categoryID = category.id
         item.description = Helper.characterCheck(text: descriptionTextView.text!) 
         item.price = Double(priceTextField.text!) ?? 0.0
+        item.stock = Int(stockOfItem.text!) ?? 0
         
         if itemImages.count > 0 {
             

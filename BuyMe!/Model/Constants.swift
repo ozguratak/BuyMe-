@@ -24,6 +24,7 @@ public let keyObjectID = "objectID"
 //Items
 public let keyCategoryID = "categoryID"
 public let keyPrice = "price"
+public let keyStock = "stockOfItem"
 public let keyLinks = "imageLinks"
 public let keyDescription = "description"
 public let itemNotFound = "Not Found Any Item!"

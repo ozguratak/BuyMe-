@@ -15,6 +15,7 @@ class Items {
     var id: String!
     var categoryID: String!
     var name: String!
+    var stock: Int!
     var price: Double!
     var description: String!
     var imageLinks: [String]!
@@ -30,6 +31,7 @@ class Items {
         description = _dictionary[keyDescription] as? String
         price = _dictionary[keyPrice] as? Double ?? 0.0
         imageLinks = _dictionary[keyLinks] as? [String] ?? [""]
+        stock = _dictionary[keyStock] as? Int ?? 0
     }
     
     //MARK: - Save Items
@@ -42,7 +44,7 @@ class Items {
     //MARK: - Helpers
     
     func itemDictionaryFrom(_ item: Items) -> NSDictionary {
-        return NSDictionary(objects: [item.id, item.categoryID, item.name, item.description, item.price, item.imageLinks], forKeys: [keyObjectID as NSCopying, keyCategoryID as NSCopying, keyName as NSCopying, keyDescription as NSCopying, keyPrice as NSCopying, keyLinks as NSCopying])
+        return NSDictionary(objects: [item.id, item.categoryID, item.name, item.description, item.price, item.imageLinks, item.stock], forKeys: [keyObjectID as NSCopying, keyCategoryID as NSCopying, keyName as NSCopying, keyDescription as NSCopying, keyPrice as NSCopying, keyLinks as NSCopying, keyStock as NSCopying])
     }
     
     //MARK: - Downloading Items from firebase

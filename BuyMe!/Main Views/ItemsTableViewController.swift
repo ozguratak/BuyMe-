@@ -64,6 +64,7 @@ class ItemsTableViewController: UITableViewController {
         self.itemsArray.removeAll()
         self.itemsForShow.removeAll()
         self.loadItems()
+        self.tableView.reloadData()
     }
     
     // MARK: - Navigation

@@ -61,6 +61,7 @@ class ItemsDetailViewController: UIViewController {
             itemTitle.text = item.name
             itemDescription.text = item.description
             itemPrice.text = Helper.currencyConverter(value: item.price)
+            stockOfItem.text = String(describing: item.stock!)
         }
         
     }
@@ -75,6 +76,7 @@ class ItemsDetailViewController: UIViewController {
    
     
     @IBAction func minusButtonPressed(_ sender: Any) {
+
         if pieceOfItemToBasket > 1 {
             pieceOfItemToBasket -= 1
             pieceLabel.text = String(describing: pieceOfItemToBasket)
@@ -82,8 +84,12 @@ class ItemsDetailViewController: UIViewController {
     }
     
     @IBAction func plusButtonPressed(_ sender: Any) {
+        if pieceOfItemToBasket < item.stock {
             pieceOfItemToBasket += 1
             pieceLabel.text = String(describing: pieceOfItemToBasket)
+        } else if pieceOfItemToBasket > item.stock || pieceOfItemToBasket == item.stock {
+            pieceLabel.text = String(describing: pieceOfItemToBasket)
+        }
     }
     
     @IBAction func addButonPressed(_ sender: Any) {
