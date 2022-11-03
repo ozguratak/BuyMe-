@@ -14,6 +14,8 @@ class ItemsDetailViewController: UIViewController {
     //MARK: - Vars
     var item: Items!
     var itemImages: [UIImage] = []
+    var pieceOfItemToBasket: Int = 1
+    
     
     private let sectionInsets = UIEdgeInsets(top: 0.0, left: 2.0, bottom: 0.0, right: 2.0) // içeriğin cell içerisindeki yerleşimini belirleyen constraintler. Cell tamamen görsel kaydıracağı için sıfıra sıfır yaptık.
     private let itemsPerRow: CGFloat = 1 // Her bir satırda kaç item olabileceğini limitledik.
@@ -25,6 +27,8 @@ class ItemsDetailViewController: UIViewController {
     @IBOutlet weak var itemDescription: UITextView!
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    @IBOutlet weak var pieceLabel: UILabel!
+    @IBOutlet weak var stockOfItem: UILabel!
     
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
@@ -62,8 +66,24 @@ class ItemsDetailViewController: UIViewController {
     }
     
     //MARK: - IBActions
+    
     @objc func backAction() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: Stock
+   
+    
+    @IBAction func minusButtonPressed(_ sender: Any) {
+        if pieceOfItemToBasket > 1 {
+            pieceOfItemToBasket -= 1
+            pieceLabel.text = String(describing: pieceOfItemToBasket)
+        }
+    }
+    
+    @IBAction func plusButtonPressed(_ sender: Any) {
+            pieceOfItemToBasket += 1
+            pieceLabel.text = String(describing: pieceOfItemToBasket)
     }
     
     @IBAction func addButonPressed(_ sender: Any) {
@@ -72,9 +92,11 @@ class ItemsDetailViewController: UIViewController {
             if basket == nil {
                 self.newBasket()
             } else {
-                basket?.itemIDs.append(self.item.id)
-                self.updateBasket(basket: basket!, withValues: [keyBasketItemIDs : basket!.itemIDs!])
-                self.notificationController()
+                for _ in 0...self.pieceOfItemToBasket - 1 {
+                    basket?.itemIDs.append(self.item.id)
+                    self.updateBasket(basket: basket!, withValues: [keyBasketItemIDs : basket!.itemIDs!])
+                    self.notificationController()
+                }
             }
         }
         ErrorController.alert(alertInfo: "Item succesfully added to basket!", page: self)
