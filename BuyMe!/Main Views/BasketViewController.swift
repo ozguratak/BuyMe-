@@ -54,7 +54,6 @@ class BasketViewController: UIViewController {
     let ownerID = userID // ownerID eşleşme yapmazsa veriyi çekmez. ownerID doğruluğundan emin olunmalı.
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkAccount()

@@ -14,6 +14,7 @@ class Order {
     var purchaseStatus: Bool!
     var orderID: String?
     var orderOwnerID: String?
+    var orderTime: String?
     
     init () {
         
@@ -25,6 +26,7 @@ class Order {
         items = ["":0]
         totalAmount = 0.0
         purchaseStatus = false
+        orderTime = ""
     }
     
     init (_dictionary: NSDictionary) {
@@ -33,10 +35,11 @@ class Order {
         purchaseStatus = _dictionary[keyOrderPurchaseStatus] as? Bool
         totalAmount = _dictionary[keyOrderTotal] as? Double
         items = _dictionary[keyOrderItems] as! [String : Int]
+        orderTime = _dictionary[keyOrderTime] as? String
     }
     
     func orderDictionaryFrom(_ order: Order) -> NSDictionary {
-        return NSDictionary(objects: [order.orderID!, order.orderOwnerID, order.totalAmount!, order.purchaseStatus!, order.items], forKeys: [keyOrderID as NSCopying, keyOrderOwnerID as NSCopying, keyOrderTotal as NSCopying, keyOrderPurchaseStatus as NSCopying, keyOrderItems as NSCopying])
+        return NSDictionary(objects: [order.orderID!, order.orderOwnerID, order.totalAmount!, order.purchaseStatus!, order.items, order.orderTime], forKeys: [keyOrderID as NSCopying, keyOrderOwnerID as NSCopying, keyOrderTotal as NSCopying, keyOrderPurchaseStatus as NSCopying, keyOrderItems as NSCopying, keyOrderTime as NSCopying])
     }
     
     func saveOrderToFirestore(_ order: Order) {

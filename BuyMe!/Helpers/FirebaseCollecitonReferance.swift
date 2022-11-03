@@ -9,6 +9,7 @@
 
 import Foundation
 import FirebaseFirestore
+import Firebase
 
 //MARK: CollectionReference, Firestore içerisinde verileri oluşturabilmek için firebaseReference adında bir fonksiyon yarattık. Bu fonksiyonun görevi firebase'in kendi kullanımına göre yazdığı JSON formata hızlı erişim yapabilmek için. kısaca 24. satırı her seferinde baştan yazmamak için bu fonksiyonu çağırıyoruz. Bu fonksiyon bizden collection istiyor. collectionlarımızı enum olarak oluşturduk çünkü her bir case'in kendine göre özelleştirilmiş initleri var ve kendine özel değerler alabiliyor.
 enum FCollectionReference: String{

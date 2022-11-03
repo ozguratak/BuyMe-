@@ -105,7 +105,7 @@ class User {
         return result
     }
     
-    //MARK: - User login and register functions
+    //MARK: - User login, register and logout functions
     
     class func loginUser(email: String, password: String, completion: @escaping (_ error: Error?, _ verified: Bool, _ Id: String) -> Void) {
         
@@ -156,6 +156,12 @@ class User {
         catch {
             ErrorController.alert(alertInfo: "something get wrong!", page: page)
         }
+    }
+    
+    //MARK: - Send e-mail to user
+    
+    func mailSender() {
+        
     }
 }
 

@@ -32,15 +32,12 @@ class PaymentViewController: UIViewController {
         newOrder()
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         itemDictMaker()
         // Do any additional setup after loading the view.
     }
-    
+    //MARK: - Order creating
     private func newOrder() {
         
         let newOrder = Order()
@@ -50,6 +47,7 @@ class PaymentViewController: UIViewController {
         newOrder.items = self.itemList
         newOrder.totalAmount = Double(self.totalAmount)
         newOrder.purchaseStatus = true
+        newOrder.orderTime = orderTime()
         
         order.saveOrderToFirestore(newOrder)
         User().updatePurchaseList(orderID: newOrder.orderID!)
@@ -71,8 +69,17 @@ class PaymentViewController: UIViewController {
         }
     }
     
-    private func orderTime() {
-        
+    private func orderTime() -> String{
+        let today = Date()
+        let hours   = (Calendar.current.component(.hour, from: today))
+        let minutes = (Calendar.current.component(.minute, from: today))
+        let seconds = (Calendar.current.component(.second, from: today))
+        let day = (Calendar.current.component(.day, from: today))
+        let month = (Calendar.current.component(.month, from: today))
+        let year = (Calendar.current.component(.year, from: today))
+        let orderTime = "\(day)/" + "\(month)/" + "\(year)" + " - " + "\(hours):" + "\(minutes):" + "\(seconds)"
+        return orderTime
     }
+
     
 }

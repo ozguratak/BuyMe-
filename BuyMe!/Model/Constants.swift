@@ -57,6 +57,7 @@ public let keyOrderOwnerID = "owner's ID"
 public let keyOrderItems = "items ID list"
 public let keyOrderPurchaseStatus = "purchase status"
 public let keyOrderTotal = "order total amount"
+public let keyOrderTime = "order time"
 
 //Cell Keys
 public let cellIdentifier = "Cell"
