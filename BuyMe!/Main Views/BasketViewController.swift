@@ -59,6 +59,7 @@ class BasketViewController: UIViewController {
         super.viewDidLoad()
         checkAccount()
         NotificationCenter.default.addObserver(self, selector: #selector(navigationCenterActivity) , name: Notification.Name(itemAddNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(navigationCenterActivity), name: NSNotification.Name(paymentSuccess), object: nil)
         itemTableView.dataSource = self
         itemTableView.delegate = self
         itemTableView.refreshControl?.isEnabled = true
@@ -78,6 +79,8 @@ class BasketViewController: UIViewController {
         refreshControlIndicator.startAnimating()
         Skeleton.startAnimation(outlet: itemTableView.self)
         getBasket()
+        
+      
     }
     
     private func stopRefresh() {
@@ -86,6 +89,7 @@ class BasketViewController: UIViewController {
         Skeleton.stopAnimaton(outlet: itemTableView.self)
         refreshControlIndicator.isHidden = true
         refreshControl.endRefreshing()
+        itemTableView.reloadData()
         
     }
     private func goToPaymentPage() {
@@ -98,6 +102,7 @@ class BasketViewController: UIViewController {
             let VC = segue.destination as! PaymentViewController
             VC.totalAmount = totalAmount.text!
             VC.itemIds = basketItemIDs
+            VC.currentBasket = defaultBasket
         }
             
     }
@@ -124,7 +129,10 @@ class BasketViewController: UIViewController {
                 self.setItemsInBasket()
                 
             } else {
-                
+                self.basketItemIDs.removeAll()
+                self.basketItems.removeAll()
+                self.stopRefresh()
+                self.basketEmptyState()
             }
         }
         
@@ -230,6 +238,9 @@ class BasketViewController: UIViewController {
     //MARK: - Navigation Center call activity
     @objc func navigationCenterActivity() {
         refresh()
+        if basketItems.isEmpty {
+            stopRefresh()
+        }
     }
 }
 

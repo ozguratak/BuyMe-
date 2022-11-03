@@ -88,6 +88,7 @@ public let userLoggedIn = "knowingUserLoggedIn"
 public var currentEmail = ""
 
 public let checkoutButton = "checkOut"
+public let paymentSuccess = "paymentSuccess"
 
 
 //Alert Strings and Keys

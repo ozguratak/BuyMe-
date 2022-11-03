@@ -10,10 +10,12 @@ import UIKit
 class PaymentViewController: UIViewController {
     //MARK: Singleton
     let order = Order.shared
+    let basket = Basket.shared
     
     //MARK: - Variables
     var totalAmount: String!
     var itemIds: [String] = []
+    var currentBasket: Basket?
     
     var itemList: [String : Int] = [:]
     
@@ -51,6 +53,9 @@ class PaymentViewController: UIViewController {
         
         order.saveOrderToFirestore(newOrder)
         User().updatePurchaseList(orderID: newOrder.orderID!)
+        basket.deleteBasket(currentBasket!)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(paymentSuccess), object: nil)
     }
 
     private func itemDictMaker() {
