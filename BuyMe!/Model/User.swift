@@ -193,6 +193,14 @@ extension User {
         self.saveUserToFirestore(user)
     }
     
+    func updatePurchaseList(orderID: String) {
+        firebaseReference(.User).document(userID!).updateData([keyUserPurchased : orderID]) { error in
+            if error != nil {
+                print("update error!")
+            }
+        }
+    }
+    
     func updateUserInformations(userID: String, name: String, lastName: String, billAdress: String, shippingAdress: String, phone: String, profileImage: [UIImage?]) {
         
         let user = User()

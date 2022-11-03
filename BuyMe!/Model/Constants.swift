@@ -51,6 +51,7 @@ public let keyUserPassword = "password"
 public let keyUserBillAdress = "billAdress"
 
 //Orders
+public let orderID = "" //user purchasedItems için yollanan id
 public let keyOrderID = "orderID"
 public let keyOrderOwnerID = "owner's ID"
 public let keyOrderItems = "items ID list"

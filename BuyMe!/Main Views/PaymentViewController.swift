@@ -42,6 +42,7 @@ class PaymentViewController: UIViewController {
     private func newOrder() {
         
         let newOrder = Order()
+        
         newOrder.orderID = UUID().uuidString
         newOrder.orderOwnerID = userID
         newOrder.items = self.itemList
@@ -49,7 +50,7 @@ class PaymentViewController: UIViewController {
         newOrder.purchaseStatus = true
         
         order.saveOrderToFirestore(newOrder)
-        
+        User().updatePurchaseList(orderID: newOrder.orderID!)
     }
 
     private func itemDictMaker() {
