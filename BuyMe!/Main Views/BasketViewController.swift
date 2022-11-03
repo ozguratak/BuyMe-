@@ -89,10 +89,19 @@ class BasketViewController: UIViewController {
         
     }
     private func goToPaymentPage() {
-        let mainSb = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let appVC = mainSb.instantiateViewController(identifier: "PaymentViewController")
-        show(appVC, sender: self)
+        performSegue(withIdentifier: checkOut, sender: goToPaymentPage)
+
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == checkOut {
+            let VC = segue.destination as! PaymentViewController
+            VC.totalAmount = totalAmount.text!
+            VC.itemIds = basketItemIDs
+        }
+            
+    }
+    
     //MARK: - Check user account
     func checkAccount() {
         if ownerID == "" {

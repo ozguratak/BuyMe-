@@ -8,7 +8,23 @@
 import UIKit
 
 class PaymentViewController: UIViewController {
-
+    //MARK: - Variables
+    var totalAmount: String!
+    var itemIds: [String] = []
+    
+    
+    //MARK: - IBOutlets
+    @IBOutlet weak var cardOwnerName: UITextField!
+    @IBOutlet weak var cardNumber: UITextField!
+    @IBOutlet weak var cardExpirationDate: UITextField!
+    @IBOutlet weak var cardCVV: UITextField!
+    
+    
+    //MARK: - IBActions
+    @IBOutlet weak var paymentButtonPressed: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

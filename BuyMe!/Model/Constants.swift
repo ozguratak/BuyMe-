@@ -52,11 +52,10 @@ public let keyUserBillAdress = "billAdress"
 
 //Orders
 public let keyOrderID = "orderID"
-public let keyOrderOwnerName = "order owner's name"
-public let keyOrderAdress = "adress for shipping"
-public let keyOrderBillAdress = "adress for bill"
-public let keyOrderPhone = "phone number for order's owner"
-public let keyOrderItems = "order item list"
+public let keyOrderOwnerID = "owner's ID"
+public let keyOrderItems = "items ID list"
+public let keyOrderPurchaseStatus = "purchase status"
+public let keyOrderTotal = "order total amount"
 
 //Cell Keys
 public let cellIdentifier = "Cell"
@@ -75,6 +74,7 @@ public let signinPageSegue = "signinViewSegue"
 public let signinSucces = "completeSignin"
 public let passwordChange = "passwordChange"
 public let emailChange = "emailChange"
+public let checkOut = "checkOut"
 
 
 //Notification Constants

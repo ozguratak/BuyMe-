@@ -37,6 +37,7 @@
 		6FAE101228F9534A00769082 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE101128F9534A00769082 /* Basket.swift */; };
 		6FAE101428FD81C500769082 /* BasketItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE101328FD81C500769082 /* BasketItemsTableViewCell.swift */; };
 		6FB2228F29116E9600695485 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB2228E29116E9600695485 /* PaymentViewController.swift */; };
+		6FB222912913AEA400695485 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB222902913AEA400695485 /* Orders.swift */; };
 		6FFC7C0428F5A9AB002F8D1B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC7C0328F5A9AB002F8D1B /* ImageCollectionViewCell.swift */; };
 		6FFC7C0628F84E9D002F8D1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FFC7C0528F84E9C002F8D1B /* GoogleService-Info.plist */; };
 		D50A2AA57179B19056533C5C /* Pods_BuyMe_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81055EC5466A95A709E6025C /* Pods_BuyMe_.framework */; };
@@ -76,6 +77,7 @@
 		6FAE101128F9534A00769082 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		6FAE101328FD81C500769082 /* BasketItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemsTableViewCell.swift; sourceTree = "<group>"; };
 		6FB2228E29116E9600695485 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		6FB222902913AEA400695485 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		6FFC7C0328F5A9AB002F8D1B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FFC7C0528F84E9C002F8D1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		81055EC5466A95A709E6025C /* Pods_BuyMe_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyMe_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,10 +134,10 @@
 			children = (
 				6F6CCD2028ED7AE400827B29 /* AppDelegate.swift */,
 				6F7E6A0928ED9CB2001C01A5 /* Main Views */,
-				6F7E6A0A28ED9CC0001C01A5 /* Custom Cells */,
 				6F7E6A0D28ED9D02001C01A5 /* Model */,
-				6F294898290AD0140000CBA6 /* AdMob */,
 				6F7E6A0828ED9C9B001C01A5 /* Helpers */,
+				6F7E6A0A28ED9CC0001C01A5 /* Custom Cells */,
+				6F294898290AD0140000CBA6 /* AdMob */,
 				6F6CCD2228ED7AE400827B29 /* SceneDelegate.swift */,
 				6F6CCD2628ED7AE400827B29 /* Main.storyboard */,
 				6F6CCD2B28ED7AE800827B29 /* LaunchScreen.storyboard */,
@@ -196,6 +198,7 @@
 				6F7E6A1628EF1ED3001C01A5 /* Items.swift */,
 				6FAE101128F9534A00769082 /* Basket.swift */,
 				6F377ADD29028AA000140B73 /* User.swift */,
+				6FB222902913AEA400695485 /* Orders.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				6F6CCD2128ED7AE400827B29 /* AppDelegate.swift in Sources */,
 				6F3661CC28F58DED009A0EB2 /* Skeleton.swift in Sources */,
 				6F6CCD2328ED7AE400827B29 /* SceneDelegate.swift in Sources */,
+				6FB222912913AEA400695485 /* Orders.swift in Sources */,
 				6F7E6A1528EF1C39001C01A5 /* ItemsTableViewController.swift in Sources */,
 				6F7A83D828F44F12009E06D1 /* Downloader.swift in Sources */,
 				6F7E6A1728EF1ED4001C01A5 /* Items.swift in Sources */,
