@@ -78,6 +78,7 @@
 		6FAE101328FD81C500769082 /* BasketItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemsTableViewCell.swift; sourceTree = "<group>"; };
 		6FB2228E29116E9600695485 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		6FB222902913AEA400695485 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
+		6FB222922913C80A00695485 /* Tester.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Tester.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FFC7C0328F5A9AB002F8D1B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FFC7C0528F84E9C002F8D1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		81055EC5466A95A709E6025C /* Pods_BuyMe_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyMe_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +157,7 @@
 				6F7A83D528F44E84009E06D1 /* Reachability.swift */,
 				6F7A83D728F44F12009E06D1 /* Downloader.swift */,
 				6F3661CB28F58DED009A0EB2 /* Skeleton.swift */,
+				6FB222922913C80A00695485 /* Tester.playground */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

@@ -7,6 +7,7 @@
 
 import Foundation
 class Order {
+    static let shared = Order()
     
     var items: [String : Int] = [:]
     var totalAmount: Double!
@@ -14,6 +15,9 @@ class Order {
     var orderID: String?
     var orderOwnerID: String?
     
+    init () {
+        
+    }
     
     init (_ orderId: String) {
         orderID = orderId
@@ -28,11 +32,11 @@ class Order {
         orderOwnerID = _dictionary[keyOrderOwnerID] as? String
         purchaseStatus = _dictionary[keyOrderPurchaseStatus] as? Bool
         totalAmount = _dictionary[keyOrderTotal] as? Double
-        items = _dictionary[keyOrderItems] as? [String : Int] ?? ["":0]
+        items = _dictionary[keyOrderItems] as! [String : Int]
     }
     
     func orderDictionaryFrom(_ order: Order) -> NSDictionary {
-        return NSDictionary(objects: [order.orderID!, order.orderOwnerID, order.totalAmount!, order.purchaseStatus!, order.items], forKeys: [keyOrderID as NSCopying, keyOrderOwnerID as NSCopying, keyOrderTotal as NSCopying, keyOrderTotal as NSCopying, keyOrderPurchaseStatus as NSCopying, keyOrderItems as NSCopying])
+        return NSDictionary(objects: [order.orderID!, order.orderOwnerID, order.totalAmount!, order.purchaseStatus!, order.items], forKeys: [keyOrderID as NSCopying, keyOrderOwnerID as NSCopying, keyOrderTotal as NSCopying, keyOrderPurchaseStatus as NSCopying, keyOrderItems as NSCopying])
     }
     
     func saveOrderToFirestore(_ order: Order) {

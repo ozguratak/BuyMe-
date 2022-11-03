@@ -421,6 +421,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Payment"/>
+                                <connections>
+                                    <action selector="paymentButtonPressed:" destination="79t-J4-FVa" eventType="touchUpInside" id="45q-ND-sS4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Credit Card Info:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cy-tb-Itd">
                                 <rect key="frame" x="50" y="172" width="198" height="19"/>
@@ -449,7 +452,6 @@
                         <outlet property="cardExpirationDate" destination="kFl-H4-0CW" id="3cg-wF-YKT"/>
                         <outlet property="cardNumber" destination="8tF-Lb-C1H" id="PZI-Wh-1q9"/>
                         <outlet property="cardOwnerName" destination="2zO-Ny-Y4C" id="7oF-FT-BgT"/>
-                        <outlet property="paymentButtonPressed" destination="0bv-in-imF" id="aHc-3m-oAQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCC-zs-XPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -8,9 +8,14 @@
 import UIKit
 
 class PaymentViewController: UIViewController {
+    //MARK: Singleton
+    let order = Order.shared
+    
     //MARK: - Variables
     var totalAmount: String!
     var itemIds: [String] = []
+    
+    var itemList: [String : Int] = [:]
     
     
     //MARK: - IBOutlets
@@ -21,25 +26,47 @@ class PaymentViewController: UIViewController {
     
     
     //MARK: - IBActions
-    @IBOutlet weak var paymentButtonPressed: UIButton!
+    @IBAction func paymentButtonPressed(_ sender: Any) {
+        newOrder()
+    }
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        itemDictMaker()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func newOrder() {
+        
+        let newOrder = Order()
+        newOrder.orderID = UUID().uuidString
+        newOrder.orderOwnerID = userID
+        newOrder.items = self.itemList
+        newOrder.totalAmount = Double(self.totalAmount)
+        newOrder.purchaseStatus = true
+        
+        order.saveOrderToFirestore(newOrder)
+        
     }
-    */
 
+    private func itemDictMaker() {
+        var newValue: Int = 1
+        for item in itemIds {
+            if itemList[item] != nil {
+                itemList[item] = newValue + 1
+                newValue += 1
+            } else {
+                itemList[item] = 1
+            }
+            print(itemList)
+        }
+    }
+    
+    private func orderTime() {
+        
+    }
+    
 }
