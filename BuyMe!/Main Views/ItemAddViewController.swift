@@ -41,7 +41,7 @@ class ItemAddViewController: UIViewController {
     @IBAction func doneButtonPressed(_ sender: Any) {
  
         dismissKeyboard()
-        
+         
         if checkFieldsAreCompleted() {
             saveItems()
             NotificationCenter.default.post(name: NSNotification.Name(itemAddToCategory), object: nil)

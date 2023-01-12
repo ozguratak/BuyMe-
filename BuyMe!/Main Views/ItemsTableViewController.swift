@@ -10,6 +10,7 @@ import UIKit
 class ItemsTableViewController: UITableViewController {
     var items = Items.shared
     var skeleton = Skeleton.shared
+    
     var ownerID: String?
     var category: Category!
     var itemsArray: [Items] = []
@@ -18,6 +19,7 @@ class ItemsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(navigationCenterActivity) , name: Notification.Name(itemAddToCategory), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(itemDelete), name: NSNotification.Name(paymentSuccess), object: nil)
         loadItems()
     }
     // MARK: - Table view data source
@@ -60,11 +62,16 @@ class ItemsTableViewController: UITableViewController {
         }
     }
     
-    @objc func navigationCenterActivity () {
+    @objc func navigationCenterActivity() {
         self.itemsArray.removeAll()
         self.itemsForShow.removeAll()
         self.loadItems()
         self.tableView.reloadData()
+    }
+    
+    @objc func itemDelete() {
+        
+        
     }
     
     // MARK: - Navigation

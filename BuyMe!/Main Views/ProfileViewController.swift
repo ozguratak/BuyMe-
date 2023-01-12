@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    var currentUser: User?
+    var currentUser: User? 
     var gallery: GalleryController!
     var objectID = userID
     var purchasedItems: [String] = []
@@ -170,7 +170,7 @@ class ProfileViewController: UIViewController {
         if let userID = userID {
             firebaseReference(.User).document(userID).delete { error in
                 if let error = error {
-                    print("ERRO OLUŞTU!!!\(error)")
+                    print("ERROR OLUŞTU!!!\(error)")
                 } else {
                     User().deleteUser()
                     NotificationCenter.default.post(name: NSNotification.Name(logOutNotification), object: nil)

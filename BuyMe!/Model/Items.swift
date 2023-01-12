@@ -36,10 +36,9 @@ class Items {
     
     //MARK: - Save Items
     public func saveItemsToFirestore(_ item: Items) {
-        //firebaseReferance fonksiyonumuza erişim verdirerek Itemlerimizi kayıt etmemizi sağlayacak
         firebaseReference(.Items).document(item.id).setData(itemDictionaryFrom(item) as! [String: Any])
     }
-    // id'ye bağlı bir belge yaratmaya çalışıyoruz, bu id bize itemin içeriğini getirecek(document(item.id) açıklaması) ardından veriyi set edeceğiz, setleyeceğimiz veri itemDictionaryFrom adındaki fonksiyon tarafından hazırlanacak ve iteme ait initleri içeren bir "string key-any value" arrayi firestore içerisine set edilecek.
+    
 
     //MARK: - Helpers
     
@@ -69,4 +68,11 @@ class Items {
         completion(itemsArray)
     }
 }
+    func deleteItemFromFirebase(itemID: String) {
+        firebaseReference(.Items).document(itemID).delete { error in
+            if error != nil {
+                print("deleting error!")
+            }
+        }
+    }
 }

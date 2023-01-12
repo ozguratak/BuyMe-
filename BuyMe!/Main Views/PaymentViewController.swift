@@ -30,12 +30,14 @@ class PaymentViewController: UIViewController {
     //MARK: - IBActions
     @IBAction func paymentButtonPressed(_ sender: Any) {
         newOrder()
+        ErrorController.alert(alertInfo: "Payment done!", page: self)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         itemDictMaker()
-        // Do any additional setup after loading the view.
+        
     }
     //MARK: - Order creating
     private func newOrder() {
@@ -51,6 +53,7 @@ class PaymentViewController: UIViewController {
         
         order.saveOrderToFirestore(newOrder)
         User().updatePurchaseList(orderID: newOrder.orderID!)
+        itemDeleter()
         basket.deleteBasket(currentBasket!)
         
         NotificationCenter.default.post(name: NSNotification.Name(paymentSuccess), object: nil)
@@ -69,7 +72,7 @@ class PaymentViewController: UIViewController {
         }
     }
     
-    private func orderTime() -> String{
+    private func orderTime() -> String {
         let today = Date()
         let hours   = (Calendar.current.component(.hour, from: today))
         let minutes = (Calendar.current.component(.minute, from: today))
@@ -80,6 +83,12 @@ class PaymentViewController: UIViewController {
         let orderTime = "\(day)/" + "\(month)/" + "\(year)" + " - " + "\(hours):" + "\(minutes):" + "\(seconds)"
         return orderTime
     }
-
+    
+    private func itemDeleter() {
+        let itemList = currentBasket?.itemIDs
+        for item in itemList! {
+            Items().deleteItemFromFirebase(itemID: item)
+        }
+    }
     
 }
